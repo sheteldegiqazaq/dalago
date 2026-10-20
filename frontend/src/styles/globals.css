@@ -1,0 +1,140 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-lora), Georgia, serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-wheat: var(--wheat);
+  --color-wheat-soft: var(--wheat-soft);
+  --color-forest-deep: var(--forest-deep);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+ * Бренд DalaGo: глубокий лесной зелёный, тёплый слоновая кость, пшеничный акцент.
+ * Контраст текста к фону ≥ 4.5:1 (WCAG AA), основной текст ≈ 12:1.
+ */
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.982 0.012 88);
+  --foreground: oklch(0.235 0.014 150);
+  --card: oklch(0.996 0.004 90);
+  --card-foreground: oklch(0.235 0.014 150);
+  --popover: oklch(0.996 0.004 90);
+  --popover-foreground: oklch(0.235 0.014 150);
+  --primary: oklch(0.42 0.085 155);
+  --primary-foreground: oklch(0.985 0.01 90);
+  --forest-deep: oklch(0.3 0.06 158);
+  --secondary: oklch(0.94 0.028 145);
+  --secondary-foreground: oklch(0.32 0.06 155);
+  --muted: oklch(0.955 0.012 88);
+  --muted-foreground: oklch(0.45 0.016 150);
+  --accent: oklch(0.93 0.045 88);
+  --accent-foreground: oklch(0.33 0.05 70);
+  --wheat: oklch(0.78 0.11 80);
+  --wheat-soft: oklch(0.95 0.04 88);
+  --destructive: oklch(0.53 0.19 27);
+  --success: oklch(0.45 0.11 150);
+  --success-soft: oklch(0.94 0.045 150);
+  --warning: oklch(0.5 0.11 65);
+  --warning-soft: oklch(0.95 0.05 85);
+  --info: oklch(0.45 0.09 240);
+  --info-soft: oklch(0.95 0.025 240);
+  --border: oklch(0.885 0.016 88);
+  --input: oklch(0.8 0.018 100);
+  --ring: oklch(0.5 0.11 155);
+  --chart-1: oklch(0.42 0.085 155);
+  --chart-2: oklch(0.72 0.12 80);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    /* Базовый размер 17px — крупнее стандартного, для пожилых пользователей */
+    font-size: 106.25%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    line-height: 1.55;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight text-forest-deep;
+    text-wrap: balance;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    @apply focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  }
+
+  ::selection {
+    background: var(--wheat-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .field-pattern {
+    background-image:
+      repeating-linear-gradient(
+        115deg,
+        transparent 0 22px,
+        color-mix(in oklch, var(--wheat) 22%, transparent) 22px 23px
+      );
+  }
+}

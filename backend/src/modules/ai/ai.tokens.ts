@@ -1,0 +1,2 @@
+export const LIVE_AI_ASSISTANT = Symbol('LIVE_AI_ASSISTANT');
+export const FALLBACK_AI_ASSISTANT = Symbol('FALLBACK_AI_ASSISTANT');

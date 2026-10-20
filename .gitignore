@@ -1,0 +1,45 @@
+# Зависимости
+node_modules/
+.pnpm-store/
+
+# Переменные окружения и секреты: коммитим только *.env.example
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Сборки и кэши
+dist/
+build/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.turbo/
+
+# Локальные базы данных и сгенерированные артефакты
+.local-db/
+backend/uploads/
+*.sqlite
+*.sqlite3
+*.db
+
+# Тесты
+test-results/
+playwright-report/
+
+# Логи и временные файлы
+*.log
+logs/
+.temp/
+.tmp/
+*.pid
+
+# Локальные настройки инструментов
+.claude/settings.local.json
+.idea/
+.DS_Store
+Thumbs.db
