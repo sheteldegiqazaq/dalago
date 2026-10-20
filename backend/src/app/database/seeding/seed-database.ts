@@ -14,9 +14,10 @@ type SeedDatabaseOptions = {
   adminName: string;
 };
 
-/** Пароль всех демо-аккаунтов. Демо-данные создаются только сидом и помечены isDemo. */
-export const DEMO_PASSWORD = 'demo12345';
-export const DEMO_EMAIL_DOMAIN = 'demo.dalago.kz';
+/** Пароль всех аккаунтов-примеров. Примеры данных создаются только сидом и помечены isSample. */
+export const SAMPLE_PASSWORD = 'dalago12345';
+// Зарезервированный домен .example (RFC 2606): адреса заведомо не принадлежат реальным людям.
+export const SAMPLE_EMAIL_DOMAIN = 'dalago.example';
 
 const REGIONS = [
   {
@@ -156,7 +157,7 @@ const CATEGORIES = [
   { slug: 'other', nameRu: 'Другое', nameKk: 'Басқа', icon: 'package' },
 ];
 
-type DemoCompany = {
+type SampleCompany = {
   key: string;
   email: string;
   userName: string;
@@ -169,124 +170,123 @@ type DemoCompany = {
 };
 
 // Все компании вымышленные. Телефоны с кодом +7 000 не существуют.
-const COMPANIES: DemoCompany[] = [
+const COMPANIES: SampleCompany[] = [
   {
     key: 'farm',
-    email: `supplier@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Ерлан (демо)',
+    email: `supplier@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Ерлан (пример)',
     role: 'SUPPLIER',
-    name: 'КХ «Ертіс бақшасы» (демо)',
+    name: 'КХ «Ертіс бақшасы» (пример)',
     type: 'FARM',
     cityId: 'semey',
     phone: '+7 000 000 00 01',
     description:
-      'Демонстрационное крестьянское хозяйство: картофель и овощи открытого грунта у Иртыша. Своя доставка по Семею.',
+      'Крестьянское хозяйство: картофель и овощи открытого грунта у Иртыша. Своя доставка по Семею.',
   },
   {
     key: 'grain',
-    email: `grain@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Нұрлан (демо)',
+    email: `grain@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Нұрлан (пример)',
     role: 'SUPPLIER',
-    name: 'ТОО «Бородулиха астығы» (демо)',
+    name: 'ТОО «Бородулиха астығы» (пример)',
     type: 'FARM',
     cityId: 'borodulikha',
     phone: '+7 000 000 00 02',
     description:
-      'Демонстрационное зерновое хозяйство: пшеница, ячмень и мука собственного помола.',
+      'Зерновое хозяйство: пшеница, ячмень и мука собственного помола.',
   },
   {
     key: 'dairy',
-    email: `dairy@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Гүлнар (демо)',
+    email: `dairy@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Гүлнар (пример)',
     role: 'SUPPLIER',
-    name: '«Шұбартау сүті» (демо)',
+    name: '«Шұбартау сүті» (пример)',
     type: 'PRODUCER',
     cityId: 'ayagoz',
     phone: '+7 000 000 00 03',
-    description:
-      'Демонстрационный молочный цех: молоко, сметана, курт и кумыс.',
+    description: 'Молочный цех: молоко, сметана, курт и кумыс.',
   },
   {
     key: 'honey',
-    email: `honey@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Бақыт (демо)',
+    email: `honey@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Бақыт (пример)',
     role: 'SUPPLIER',
-    name: 'Пасека «Тарбағатай балы» (демо)',
+    name: 'Пасека «Тарбағатай балы» (пример)',
     type: 'PRODUCER',
     cityId: 'urzhar',
     phone: '+7 000 000 00 04',
-    description: 'Демонстрационная пасека у подножия Тарбагатая.',
+    description: 'Пасека у подножия Тарбагатая.',
   },
   {
     key: 'meat',
-    email: `meat@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Асхат (демо)',
+    email: `meat@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Асхат (пример)',
     role: 'SUPPLIER',
-    name: 'ТОО «Семей ет өнімдері» (демо)',
+    name: 'ТОО «Семей ет өнімдері» (пример)',
     type: 'PROCESSOR',
     cityId: 'semey',
     phone: '+7 000 000 00 05',
     description:
-      'Демонстрационный мясной цех: охлаждённая говядина, баранина и конина для HoReCa.',
+      'Мясной цех: охлаждённая говядина, баранина и конина для HoReCa.',
   },
   {
     key: 'orchard',
-    email: `orchard@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Айгүл (демо)',
+    email: `orchard@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Айгүл (пример)',
     role: 'SUPPLIER',
-    name: 'КХ «Үржар бау-бақшасы» (демо)',
+    name: 'КХ «Үржар бау-бақшасы» (пример)',
     type: 'FARM',
     cityId: 'urzhar',
     phone: '+7 000 000 00 06',
-    description: 'Демонстрационный сад: яблоки, облепиха и картофель.',
+    description: 'Сад: яблоки, облепиха и картофель.',
   },
   {
     key: 'eggs',
-    email: `eggs@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Марат (демо)',
+    email: `eggs@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Марат (пример)',
     role: 'SUPPLIER',
-    name: '«Көкпекті құс» (демо)',
+    name: '«Көкпекті құс» (пример)',
     type: 'PRODUCER',
     cityId: 'kokpekty',
     phone: '+7 000 000 00 07',
-    description: 'Демонстрационная птицеферма: куриное яйцо категории С1.',
+    description: 'Птицеферма: куриное яйцо категории С1.',
   },
   {
     key: 'cafe',
-    email: `buyer@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Динара (демо)',
+    email: `buyer@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Динара (пример)',
     role: 'BUYER',
-    name: 'Кафе «Ақ дастархан» (демо)',
+    name: 'Кафе «Ақ дастархан» (пример)',
     type: 'CAFE',
     cityId: 'semey',
     phone: '+7 000 000 00 11',
-    description: 'Демонстрационное кафе национальной кухни в Семее.',
+    description: 'Кафе национальной кухни в Семее.',
   },
   {
     key: 'shop',
-    email: `shop@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Серік (демо)',
+    email: `shop@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Серік (пример)',
     role: 'BUYER',
-    name: 'Магазин «Береке» (демо)',
+    name: 'Магазин «Береке» (пример)',
     type: 'SHOP',
     cityId: 'semey',
     phone: '+7 000 000 00 12',
-    description: 'Демонстрационный продуктовый магазин у дома.',
+    description: 'Продуктовый магазин у дома.',
   },
   {
     key: 'canteen',
-    email: `canteen@${DEMO_EMAIL_DOMAIN}`,
-    userName: 'Жанна (демо)',
+    email: `canteen@${SAMPLE_EMAIL_DOMAIN}`,
+    userName: 'Жанна (пример)',
     role: 'BUYER',
-    name: 'Столовая «Курчатов асханасы» (демо)',
+    name: 'Столовая «Курчатов асханасы» (пример)',
     type: 'CANTEEN',
     cityId: 'kurchatov',
     phone: '+7 000 000 00 13',
-    description: 'Демонстрационная столовая для работников предприятий.',
+    description: 'Столовая для работников предприятий.',
   },
 ];
 
-type DemoProduct = {
+type SampleProduct = {
   key: string;
   supplier: string;
   category: string;
@@ -306,7 +306,7 @@ type DemoProduct = {
 };
 
 // Цены и объёмы — иллюстративные, не рыночные котировки.
-const PRODUCTS: DemoProduct[] = [
+const PRODUCTS: SampleProduct[] = [
   {
     key: 'potato',
     supplier: 'farm',
@@ -663,7 +663,7 @@ const PRODUCTS: DemoProduct[] = [
   },
 ];
 
-type DemoOffer = {
+type SampleOffer = {
   supplier: string;
   product?: string;
   quantity: number;
@@ -674,7 +674,7 @@ type DemoOffer = {
   status: OfferStatus;
 };
 
-type DemoRequest = {
+type SampleRequest = {
   buyer: string;
   category: string;
   title: string;
@@ -686,16 +686,16 @@ type DemoRequest = {
   inDays: number;
   status: RequestStatus;
   daysAgo: number;
-  offers: DemoOffer[];
+  offers: SampleOffer[];
 };
 
-const REQUESTS: DemoRequest[] = [
+const REQUESTS: SampleRequest[] = [
   {
     buyer: 'cafe',
     category: 'vegetables',
     title: 'Картофель для кухни кафе, 300 кг',
     description:
-      'Нужен чистый картофель среднего калибра, поставка в Семей, ул. Демонстрационная 1.',
+      'Нужен чистый картофель среднего калибра, поставка в Семей, ул. Примерная, 1.',
     quantity: 300,
     unit: 'KG',
     targetPrice: 145,
@@ -827,9 +827,9 @@ export async function seedDatabase(
     update: { name: options.adminName, role: 'ADMIN' },
   });
 
-  const demo = await seedDemoMarketplace(prisma);
+  const samples = await seedSampleMarketplace(prisma);
 
-  return { admin, demo };
+  return { admin, samples };
 }
 
 async function seedReference(prisma: PrismaService) {
@@ -860,13 +860,14 @@ async function seedReference(prisma: PrismaService) {
   }
 }
 
-/** Пересоздаёт демо-данные с нуля: удаление демо-пользователей каскадно удаляет их компании и сделки. */
-async function seedDemoMarketplace(prisma: PrismaService) {
+/** Пересоздаёт примеры данных с нуля: удаление владельцев компаний-примеров каскадно удаляет их компании и сделки. */
+async function seedSampleMarketplace(prisma: PrismaService) {
+  // По флагу, а не по домену: так удаляются и примеры, созданные прежними версиями сида.
   await prisma.user.deleteMany({
-    where: { email: { endsWith: `@${DEMO_EMAIL_DOMAIN}` } },
+    where: { company: { isSample: true } },
   });
 
-  const passwordHash = await new ScryptPasswordHasher().hash(DEMO_PASSWORD);
+  const passwordHash = await new ScryptPasswordHasher().hash(SAMPLE_PASSWORD);
   const categories = new Map(
     (await prisma.category.findMany()).map((c) => [c.slug, c]),
   );
@@ -889,7 +890,7 @@ async function seedDemoMarketplace(prisma: PrismaService) {
             cityId: company.cityId,
             phone: company.phone,
             description: company.description,
-            isDemo: true,
+            isSample: true,
             createdAt: new Date(Date.now() - (60 - index) * day),
           },
         },
@@ -923,7 +924,7 @@ async function seedDemoMarketplace(prisma: PrismaService) {
         pickupAvailable: product.pickup ?? true,
         tags: product.tags,
         status: product.inactive ? 'INACTIVE' : 'ACTIVE',
-        isDemo: true,
+        isSample: true,
         createdAt: at,
         updatedAt: at,
         searchText: buildSearchText([
@@ -957,7 +958,7 @@ async function seedDemoMarketplace(prisma: PrismaService) {
         deliveryCityId: request.cityId,
         desiredDate: daysFromNow(request.inDays),
         status: request.status,
-        isDemo: true,
+        isSample: true,
         createdAt,
         closedAt: ['ACCEPTED', 'CLOSED'].includes(request.status)
           ? new Date()
@@ -977,7 +978,7 @@ async function seedDemoMarketplace(prisma: PrismaService) {
           estimatedDeliveryDate: daysFromNow(offer.inDays),
           terms: offer.terms,
           status: offer.status,
-          isDemo: true,
+          isSample: true,
           createdAt: new Date(createdAt.getTime() + 3 * 60 * 60 * 1000),
         },
       });
@@ -991,7 +992,7 @@ async function seedDemoMarketplace(prisma: PrismaService) {
       toCompanyId: companyIds.get('meat')!,
       productId: productIds.get('beef'),
       subject: 'Говядина для кафе: регулярные поставки',
-      isDemo: true,
+      isSample: true,
       messages: {
         create: [
           {
@@ -1015,7 +1016,7 @@ async function seedDemoMarketplace(prisma: PrismaService) {
       toCompanyId: companyIds.get('farm')!,
       productId: productIds.get('potato'),
       subject: 'Картофель «Гала»: есть фасовка по 10 кг?',
-      isDemo: true,
+      isSample: true,
       messages: {
         create: [
           {

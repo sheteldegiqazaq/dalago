@@ -1,14 +1,14 @@
 import { expect, type Page, test } from "@playwright/test";
 
 /**
- * Полный демо-сценарий через интерфейс:
+ * Полный сценарий сделки через интерфейс:
  * покупатель создаёт заявку → поставщик отвечает → покупатель принимает.
  */
 const stamp = Date.now().toString().slice(-6);
 const requestTitle = `E2E картофель ${stamp}`;
 
-async function demoLogin(page: Page, as: "buyer" | "supplier") {
-  await page.goto("/ru/demo");
+async function sampleLogin(page: Page, as: "buyer" | "supplier") {
+  await page.goto("/ru/try");
   await page
     .getByRole("button", {
       name: as === "buyer" ? "Войти как покупатель" : "Войти как поставщик",
@@ -74,7 +74,7 @@ test("catalog filters and AI search use real data", async ({ page }) => {
 test("buyer creates a request, supplier offers, buyer accepts", async ({
   page,
 }) => {
-  await demoLogin(page, "buyer");
+  await sampleLogin(page, "buyer");
   await page.goto("/ru/requests/new");
   await page.getByLabel("Что нужно").fill(requestTitle);
   await page.getByLabel("Объём").fill("250");
@@ -86,7 +86,7 @@ test("buyer creates a request, supplier offers, buyer accepts", async ({
   const requestUrl = page.url();
   await logout(page);
 
-  await demoLogin(page, "supplier");
+  await sampleLogin(page, "supplier");
   await page.goto(requestUrl);
   await page.getByLabel("Цена за ед., ₸").fill("138");
   await page.getByLabel(/Доставка, ₸/).fill("2500");
@@ -96,7 +96,7 @@ test("buyer creates a request, supplier offers, buyer accepts", async ({
   ).toBeVisible();
   await logout(page);
 
-  await demoLogin(page, "buyer");
+  await sampleLogin(page, "buyer");
   await page.goto(requestUrl);
   await expect(page.getByText("Есть предложения").first()).toBeVisible();
   await page.getByRole("button", { name: "Принять" }).click();

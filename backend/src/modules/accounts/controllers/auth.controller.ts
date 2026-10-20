@@ -10,11 +10,13 @@ import { Authorized } from '@shared/decorators/authorized.decorator';
 import { LoginDto } from '../dto/login.dto';
 import { AuthResponseDto, MeResponseDto } from '../dto/me-response.dto';
 import { RegisterDto } from '../dto/register.dto';
+import { SampleSessionDto } from '../dto/sample-session.dto';
 import { UpdateMeDto } from '../dto/update-me.dto';
 import { MeResponseMapper } from '../mappers/me-response.mapper';
 import { GetMeUseCase } from '../use-cases/get-me.use-case';
 import { LoginUseCase } from '../use-cases/login.use-case';
 import { RegisterUseCase } from '../use-cases/register.use-case';
+import { StartSampleSessionUseCase } from '../use-cases/start-sample-session.use-case';
 import { UpdateMeUseCase } from '../use-cases/update-me.use-case';
 
 @ApiTags('Аутентификация')
@@ -23,6 +25,7 @@ export class AuthController {
   constructor(
     private readonly register: RegisterUseCase,
     private readonly login: LoginUseCase,
+    private readonly startSample: StartSampleSessionUseCase,
     private readonly getMe: GetMeUseCase,
     private readonly updateMe: UpdateMeUseCase,
   ) {}
@@ -43,6 +46,20 @@ export class AuthController {
   @HttpCode(200)
   async signIn(@Body() dto: LoginDto): Promise<AuthResponseDto> {
     const { accessToken, account } = await this.login.execute(dto);
+
+    return { accessToken, user: MeResponseMapper.toHttp(account) };
+  }
+
+  @Post('sample-session')
+  @ApiOperation({
+    summary: 'Вход без регистрации в общий аккаунт-пример выбранной роли',
+  })
+  @ApiOkResponse({ type: AuthResponseDto })
+  @HttpCode(200)
+  async startSampleSession(
+    @Body() dto: SampleSessionDto,
+  ): Promise<AuthResponseDto> {
+    const { accessToken, account } = await this.startSample.execute(dto);
 
     return { accessToken, user: MeResponseMapper.toHttp(account) };
   }

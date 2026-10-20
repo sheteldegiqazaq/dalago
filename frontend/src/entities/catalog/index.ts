@@ -11,4 +11,4 @@ export {
 } from "./model/units";
 export { CategoryIcon } from "./ui/CategoryIcon";
 export { CategoryVisual } from "./ui/CategoryVisual";
-export { DemoBadge } from "./ui/DemoBadge";
+export { SampleBadge } from "./ui/SampleBadge";

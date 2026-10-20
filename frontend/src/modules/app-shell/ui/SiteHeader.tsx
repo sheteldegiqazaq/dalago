@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-import { DEMO_MODE, logout, useSession } from "@/modules/session";
+import { logout, SAMPLE_ACCESS_ENABLED, useSession } from "@/modules/session";
 import { Button } from "@/shared/components/ui/button";
 import { Link, usePathname, useRouter } from "@/shared/configs/i18/navigation";
 import { cn } from "@/shared/lib/utils";
@@ -57,9 +57,9 @@ export function SiteHeader() {
       <Button asChild variant="ghost">
         <Link href="/login">{t("nav.login")}</Link>
       </Button>
-      {DEMO_MODE ? (
+      {SAMPLE_ACCESS_ENABLED ? (
         <Button asChild>
-          <Link href="/demo">{t("nav.demo")}</Link>
+          <Link href="/try">{t("nav.try")}</Link>
         </Button>
       ) : (
         <Button asChild>

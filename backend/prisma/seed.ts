@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { Logger } from '@nestjs/common';
 import { PrismaService } from '../src/app/database/prisma.service';
 import {
-  DEMO_PASSWORD,
+  SAMPLE_PASSWORD,
   seedDatabase,
 } from '../src/app/database/seeding/seed-database';
 
@@ -18,7 +18,7 @@ async function bootstrap() {
     });
 
     logger.log(
-      `Seed completed: ${JSON.stringify(result.demo)}. Demo password: ${DEMO_PASSWORD}`,
+      `Seed completed: ${JSON.stringify(result.samples)}. Sample account password: ${SAMPLE_PASSWORD}`,
     );
   } finally {
     await prisma.$disconnect();

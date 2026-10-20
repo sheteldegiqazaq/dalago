@@ -77,8 +77,8 @@ export class ProductListItemDto {
   @ApiProperty({ enum: ['ACTIVE', 'INACTIVE'] })
   status!: 'ACTIVE' | 'INACTIVE';
 
-  @ApiProperty({ description: 'Демонстрационная запись' })
-  isDemo!: boolean;
+  @ApiProperty({ description: 'Пример данных из сида' })
+  isSample!: boolean;
 
   @ApiProperty()
   createdAt!: string;
@@ -107,7 +107,7 @@ export class ProductSupplierDetailsDto extends ProductSupplierDto {
   createdAt!: string;
 
   @ApiProperty()
-  isDemo!: boolean;
+  isSample!: boolean;
 
   @ApiProperty({ type: NamedPlaceDto })
   city!: NamedPlaceDto;

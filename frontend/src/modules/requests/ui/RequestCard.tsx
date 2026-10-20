@@ -3,7 +3,7 @@
 import { CalendarClock, MapPin, Scale, Store } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import { CategoryIcon, DemoBadge, localizedName } from "@/entities/catalog";
+import { CategoryIcon, localizedName, SampleBadge } from "@/entities/catalog";
 import { RequestStatusBadge } from "@/entities/procurement";
 import { Link } from "@/shared/configs/i18/navigation";
 import { formatDate, formatMoney, formatNumber } from "@/shared/lib/format";
@@ -24,7 +24,9 @@ export function RequestCard({ request }: { request: RequestListItemDto }) {
             {localizedName(locale, request.category)}
           </span>
         ) : null}
-        {request.isDemo ? <DemoBadge label={t("common.demoData")} /> : null}
+        {request.isSample ? (
+          <SampleBadge label={t("common.sampleData")} />
+        ) : null}
       </div>
       <h3 className="font-sans text-lg leading-snug font-semibold text-foreground">
         <Link

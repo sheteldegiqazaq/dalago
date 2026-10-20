@@ -7,7 +7,7 @@ export const inquiryListSelect = {
   subject: true,
   fromCompanyId: true,
   toCompanyId: true,
-  isDemo: true,
+  isSample: true,
   createdAt: true,
   updatedAt: true,
   fromCompany: companyRef,

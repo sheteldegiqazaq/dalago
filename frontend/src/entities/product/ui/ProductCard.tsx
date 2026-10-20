@@ -5,9 +5,9 @@ import { useLocale, useTranslations } from "next-intl";
 
 import {
   CategoryVisual,
-  DemoBadge,
   localizedName,
   localizedTitle,
+  SampleBadge,
 } from "@/entities/catalog";
 import { Link } from "@/shared/configs/i18/navigation";
 import { formatMoney, formatNumber } from "@/shared/lib/format";
@@ -33,9 +33,9 @@ export function ProductCard({ product }: { product: ProductCardData }) {
             {localizedName(locale, product.category)}
           </span>
         </div>
-        {product.isDemo ? (
-          <DemoBadge
-            label={t("common.demoData")}
+        {product.isSample ? (
+          <SampleBadge
+            label={t("common.sampleData")}
             className="absolute top-3 right-3 bg-card/95"
           />
         ) : null}

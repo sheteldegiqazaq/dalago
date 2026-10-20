@@ -2,7 +2,7 @@ import { FlaskConical } from "lucide-react";
 
 import { cn } from "@/shared/lib/utils";
 
-export function DemoBadge({
+export function SampleBadge({
   label,
   className,
 }: {

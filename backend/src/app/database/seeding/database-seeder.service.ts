@@ -19,7 +19,7 @@ export class DatabaseSeederService {
     });
 
     this.logger.log(
-      `Seed completed. Admin: ${result.admin.email}, demo: ${JSON.stringify(result.demo)}`,
+      `Seed completed. Admin: ${result.admin.email}, samples: ${JSON.stringify(result.samples)}`,
     );
   }
 }

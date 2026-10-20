@@ -127,7 +127,9 @@ export function OpenDataPage() {
           <FlaskConical className="size-6 text-warning" aria-hidden />
           {t("openData.platformTitle")}
         </h2>
-        <p className="font-semibold text-warning">{t("openData.demoLabel")}</p>
+        <p className="font-semibold text-warning">
+          {t("openData.sampleLabel")}
+        </p>
         <p className="text-muted-foreground">{t("openData.platformText")}</p>
         {stats.data ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

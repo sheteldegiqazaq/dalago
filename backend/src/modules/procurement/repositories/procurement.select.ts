@@ -13,7 +13,7 @@ export const requestListSelect = {
   desiredDate: true,
   deliveryAddress: true,
   status: true,
-  isDemo: true,
+  isSample: true,
   createdAt: true,
   updatedAt: true,
   buyerCompanyId: true,
@@ -40,7 +40,7 @@ export const offerSelect = {
   estimatedDeliveryDate: true,
   terms: true,
   status: true,
-  isDemo: true,
+  isSample: true,
   createdAt: true,
   updatedAt: true,
   supplier: {

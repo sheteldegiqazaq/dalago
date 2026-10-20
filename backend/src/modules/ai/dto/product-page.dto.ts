@@ -72,7 +72,7 @@ export class AiProductItemDto {
   status!: 'ACTIVE' | 'INACTIVE';
 
   @ApiProperty()
-  isDemo!: boolean;
+  isSample!: boolean;
 
   @ApiProperty()
   createdAt!: string;

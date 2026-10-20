@@ -14,7 +14,7 @@ export class SupplierMapper {
       description: company.description,
       address: company.address,
       phone: company.phone,
-      isDemo: company.isDemo,
+      isSample: company.isSample,
       createdAt: company.createdAt.toISOString(),
       city: company.city,
       productCount: company.products.length,

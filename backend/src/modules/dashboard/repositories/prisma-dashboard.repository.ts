@@ -241,7 +241,7 @@ export class PrismaDashboardRepository implements DashboardRepository {
         select: { cityId: true },
         distinct: ['cityId'],
       }),
-      this.prisma.company.count({ where: { isDemo: false } }),
+      this.prisma.company.count({ where: { isSample: false } }),
     ]);
 
     return {
@@ -251,7 +251,7 @@ export class PrismaDashboardRepository implements DashboardRepository {
       activeRequests: requests,
       acceptedRequests: accepted,
       citiesWithSuppliers: cities.length,
-      demoRecordsOnly: realCompanies === 0,
+      sampleRecordsOnly: realCompanies === 0,
     };
   }
 

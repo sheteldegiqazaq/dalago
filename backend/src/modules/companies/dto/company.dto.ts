@@ -134,8 +134,8 @@ export class SupplierDto {
   @ApiProperty()
   phone!: string;
 
-  @ApiProperty({ description: 'Демонстрационная запись' })
-  isDemo!: boolean;
+  @ApiProperty({ description: 'Пример данных из сида' })
+  isSample!: boolean;
 
   @ApiProperty({ description: 'Дата регистрации на платформе' })
   createdAt!: string;

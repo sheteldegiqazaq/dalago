@@ -87,13 +87,13 @@ model Region {
 
 /// Города и районные центры. Координаты — приблизительный центр населённого пункта.
 model City {
-  id        String  @id
+  id        String @id
   regionId  String
   nameRu    String
   nameKk    String
   latitude  Float?
   longitude Float?
-  sortOrder Int     @default(0)
+  sortOrder Int    @default(0)
 
   region    Region            @relation(fields: [regionId], references: [id])
   companies Company[]
@@ -127,7 +127,7 @@ model Company {
   cityId      String
   address     String?
   phone       String
-  isDemo      Boolean     @default(false)
+  isSample    Boolean     @default(false) @map("isDemo") // пример данных из сида; имя колонки сохранено, чтобы не менять базу
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 
@@ -165,7 +165,7 @@ model Product {
   /// Нормализованный текст для поиска: названия ru/kk, описание, теги, категория.
   searchText        String        @default("")
   status            ProductStatus @default(ACTIVE)
-  isDemo            Boolean       @default(false)
+  isSample          Boolean       @default(false) @map("isDemo") // пример данных из сида; имя колонки сохранено, чтобы не менять базу
   createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
 
@@ -197,7 +197,7 @@ model PurchaseRequest {
   deliveryAddress String?
   desiredDate     DateTime
   status          RequestStatus @default(OPEN)
-  isDemo          Boolean       @default(false)
+  isSample        Boolean       @default(false) @map("isDemo") // пример данных из сида; имя колонки сохранено, чтобы не менять базу
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
   closedAt        DateTime?
@@ -225,7 +225,7 @@ model Offer {
   estimatedDeliveryDate DateTime
   terms                 String?
   status                OfferStatus @default(PENDING)
-  isDemo                Boolean     @default(false)
+  isSample              Boolean     @default(false) @map("isDemo") // пример данных из сида; имя колонки сохранено, чтобы не менять базу
   createdAt             DateTime    @default(now())
   updatedAt             DateTime    @updatedAt
 
@@ -246,7 +246,7 @@ model Inquiry {
   productId     String?
   requestId     String?
   subject       String
-  isDemo        Boolean  @default(false)
+  isSample      Boolean  @default(false) @map("isDemo") // пример данных из сида; имя колонки сохранено, чтобы не менять базу
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 

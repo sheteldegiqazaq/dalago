@@ -64,7 +64,7 @@ pnpm test:coverage
 
 Unit/component tests live next to code in `__tests__/`.
 
-Browser e2e tests (Playwright) live in `tests/e2e/` and run the full demo flow
+Browser e2e tests (Playwright) live in `tests/e2e/` and run the full marketplace flow
 against a running backend and frontend:
 
 ```bash

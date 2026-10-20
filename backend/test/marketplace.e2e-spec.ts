@@ -3,17 +3,22 @@ import { Test, TestingModule } from '@nestjs/testing';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import request from 'supertest';
 import { PrismaService } from '../src/app/database/prisma.service';
+import {
+  SAMPLE_EMAIL_DOMAIN,
+  SAMPLE_PASSWORD,
+} from '../src/app/database/seeding/seed-database';
 import { setupApp } from '../src/app/setup-app';
 import { AppModule } from '../src/app.module';
 
 /**
- * Сквозной сценарий демо на реальной базе (нужен `pnpm db:seed`):
+ * Сквозной сценарий на реальной базе с примерами данных (нужен `pnpm db:seed`):
  * поиск → заявка покупателя → предложение поставщика → принятие,
  * плюс проверки прав доступа.
  */
 type Body = Record<string, any>;
 
-const PASSWORD = 'demo12345';
+const PASSWORD = SAMPLE_PASSWORD;
+const sampleEmail = (name: string) => `${name}@${SAMPLE_EMAIL_DOMAIN}`;
 const inDays = (days: number) =>
   new Date(Date.now() + days * 86_400_000).toISOString().slice(0, 10);
 
@@ -37,10 +42,10 @@ describe('Marketplace flow (e2e)', () => {
     prisma = app.get(PrismaService);
 
     for (const [who, email] of [
-      ['buyer', 'buyer@demo.dalago.kz'],
-      ['shop', 'shop@demo.dalago.kz'],
-      ['supplier', 'supplier@demo.dalago.kz'],
-      ['meat', 'meat@demo.dalago.kz'],
+      ['buyer', sampleEmail('buyer')],
+      ['shop', sampleEmail('shop')],
+      ['supplier', sampleEmail('supplier')],
+      ['meat', sampleEmail('meat')],
     ]) {
       const response = await http()
         .post('/api/auth/login')
@@ -60,10 +65,28 @@ describe('Marketplace flow (e2e)', () => {
   it('rejects wrong password with a stable error code', async () => {
     const response = await http()
       .post('/api/auth/login')
-      .send({ email: 'buyer@demo.dalago.kz', password: 'wrong' })
+      .send({ email: sampleEmail('buyer'), password: 'wrong' })
       .expect(401);
 
     expect((response.body as Body).code).toBe('INVALID_CREDENTIALS');
+  });
+
+  it('opens only sample accounts without a password', async () => {
+    const response = await http()
+      .post('/api/auth/sample-session')
+      .send({ role: 'SUPPLIER' })
+      .expect(200);
+    const body = response.body as Body;
+    const user = body.user as Body;
+
+    expect(body.accessToken).toEqual(expect.any(String));
+    expect(user.role).toBe('SUPPLIER');
+    expect((user.company as Body).isSample).toBe(true);
+
+    await http()
+      .post('/api/auth/sample-session')
+      .send({ role: 'ADMIN' })
+      .expect(400);
   });
 
   it('returns reference data for Abai Region with localized names', async () => {

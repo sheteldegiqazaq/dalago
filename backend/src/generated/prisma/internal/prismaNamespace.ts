@@ -1251,7 +1251,7 @@ export const CompanyScalarFieldEnum = {
   cityId: 'cityId',
   address: 'address',
   phone: 'phone',
-  isDemo: 'isDemo',
+  isSample: 'isSample',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1279,7 +1279,7 @@ export const ProductScalarFieldEnum = {
   tags: 'tags',
   searchText: 'searchText',
   status: 'status',
-  isDemo: 'isDemo',
+  isSample: 'isSample',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1301,7 +1301,7 @@ export const PurchaseRequestScalarFieldEnum = {
   deliveryAddress: 'deliveryAddress',
   desiredDate: 'desiredDate',
   status: 'status',
-  isDemo: 'isDemo',
+  isSample: 'isSample',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   closedAt: 'closedAt'
@@ -1322,7 +1322,7 @@ export const OfferScalarFieldEnum = {
   estimatedDeliveryDate: 'estimatedDeliveryDate',
   terms: 'terms',
   status: 'status',
-  isDemo: 'isDemo',
+  isSample: 'isSample',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1337,7 +1337,7 @@ export const InquiryScalarFieldEnum = {
   productId: 'productId',
   requestId: 'requestId',
   subject: 'subject',
-  isDemo: 'isDemo',
+  isSample: 'isSample',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

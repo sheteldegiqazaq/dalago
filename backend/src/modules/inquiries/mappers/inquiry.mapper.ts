@@ -25,7 +25,7 @@ export class InquiryMapper {
       lastFromCounterpart:
         Boolean(last) && last.author.company?.id !== companyId,
       messageCount: inquiry._count.messages,
-      isDemo: inquiry.isDemo,
+      isSample: inquiry.isSample,
       updatedAt: inquiry.updatedAt.toISOString(),
     };
   }
@@ -50,7 +50,7 @@ export class InquiryMapper {
       lastFromCounterpart:
         Boolean(last) && last?.author.company?.id !== companyId,
       messageCount: inquiry.messages.length,
-      isDemo: inquiry.isDemo,
+      isSample: inquiry.isSample,
       updatedAt: inquiry.updatedAt.toISOString(),
       messages: inquiry.messages.map((message) => ({
         id: message.id,

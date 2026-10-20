@@ -3,7 +3,7 @@
 import { MessageSquare } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import { DemoBadge, localizedTitle } from "@/entities/catalog";
+import { localizedTitle, SampleBadge } from "@/entities/catalog";
 import { RequireAuth } from "@/modules/session";
 import { EmptyState } from "@/shared/components/empty-state";
 import { LoadingBlock } from "@/shared/components/loading-block";
@@ -67,8 +67,8 @@ function InquiriesList() {
                     {t("inquiries.newMessage")}
                   </span>
                 ) : null}
-                {inquiry.isDemo ? (
-                  <DemoBadge label={t("common.demoData")} />
+                {inquiry.isSample ? (
+                  <SampleBadge label={t("common.sampleData")} />
                 ) : null}
               </div>
             </Link>

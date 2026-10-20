@@ -4,11 +4,11 @@ describe('ScryptPasswordHasher', () => {
   const hasher = new ScryptPasswordHasher();
 
   it('verifies the original password and rejects others', async () => {
-    const hash = await hasher.hash('demo12345');
+    const hash = await hasher.hash('correct-horse-1');
 
     expect(hash.startsWith('scrypt$')).toBe(true);
-    await expect(hasher.verify('demo12345', hash)).resolves.toBe(true);
-    await expect(hasher.verify('demo12346', hash)).resolves.toBe(false);
+    await expect(hasher.verify('correct-horse-1', hash)).resolves.toBe(true);
+    await expect(hasher.verify('correct-horse-2', hash)).resolves.toBe(false);
   });
 
   it('rejects malformed hashes', async () => {

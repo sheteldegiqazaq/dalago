@@ -3,13 +3,13 @@
 import { FlaskConical } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { DEMO_MODE } from "@/modules/session";
+import { SAMPLE_ACCESS_ENABLED } from "@/modules/session";
 import { Link } from "@/shared/configs/i18/navigation";
 
-export function DemoBanner() {
+export function SampleDataBanner() {
   const t = useTranslations();
 
-  if (!DEMO_MODE) {
+  if (!SAMPLE_ACCESS_ENABLED) {
     return null;
   }
 
@@ -17,12 +17,12 @@ export function DemoBanner() {
     <div className="border-b border-warning/30 bg-warning-soft text-sm text-warning">
       <div className="container-page flex flex-wrap items-center gap-x-3 gap-y-1 py-2">
         <FlaskConical className="size-4 shrink-0" aria-hidden />
-        <span className="font-medium">{t("common.demoNotice")}</span>
+        <span className="font-medium">{t("common.sampleNotice")}</span>
         <Link
-          href="/demo"
+          href="/try"
           className="font-semibold underline underline-offset-4"
         >
-          {t("nav.demo")}
+          {t("nav.try")}
         </Link>
       </div>
     </div>

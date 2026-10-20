@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import type { UserRole } from '@generated/prisma/client';
 import type {
   Account,
   AccountRepository,
@@ -17,6 +18,13 @@ export class InMemoryAccountRepository implements AccountRepository {
 
   findById(id: string): Promise<Account | null> {
     return Promise.resolve(this.accounts.get(id) ?? null);
+  }
+
+  findFirstSample(role: UserRole): Promise<Account | null> {
+    const found = [...this.accounts.values()]
+      .filter((a) => a.role === role && a.company?.isSample)
+      .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())[0];
+    return Promise.resolve(found ?? null);
   }
 
   async emailExists(email: string): Promise<boolean> {
@@ -48,7 +56,7 @@ export class InMemoryAccountRepository implements AccountRepository {
         cityId: data.company.cityId,
         address: null,
         phone: data.company.phone,
-        isDemo: false,
+        isSample: false,
         createdAt: now,
         updatedAt: now,
       },

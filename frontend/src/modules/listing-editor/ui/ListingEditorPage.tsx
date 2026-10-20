@@ -491,7 +491,7 @@ function Editor({ id }: { id?: string }) {
             imageUrl: /^https?:\/\/\S+$/.test(values.imageUrl)
               ? values.imageUrl
               : null,
-            isDemo: false,
+            isSample: false,
             city: city ?? { nameRu: "—", nameKk: "—" },
             category: category ?? { icon: "package", nameRu: "—", nameKk: "—" },
             supplier: {

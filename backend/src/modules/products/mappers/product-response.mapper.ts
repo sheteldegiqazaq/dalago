@@ -23,7 +23,7 @@ export class ProductResponseMapper {
       pickupAvailable: product.pickupAvailable,
       imageUrl: product.imageUrl,
       status: product.status,
-      isDemo: product.isDemo,
+      isSample: product.isSample,
       createdAt: product.createdAt.toISOString(),
       updatedAt: product.updatedAt.toISOString(),
       city: product.city,

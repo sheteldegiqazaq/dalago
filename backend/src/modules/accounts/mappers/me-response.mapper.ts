@@ -20,7 +20,7 @@ export class MeResponseMapper {
             cityId: company.cityId,
             address: company.address,
             phone: company.phone,
-            isDemo: company.isDemo,
+            isSample: company.isSample,
           }
         : null,
     };

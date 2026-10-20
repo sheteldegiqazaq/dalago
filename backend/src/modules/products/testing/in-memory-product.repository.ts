@@ -68,7 +68,7 @@ export class InMemoryProductRepository implements ProductRepository {
       pickupAvailable: data.pickupAvailable,
       imageUrl: data.imageUrl ?? null,
       status: 'ACTIVE' as ProductStatus,
-      isDemo: false,
+      isSample: false,
       createdAt: now,
       updatedAt: now,
       searchText: '',
@@ -87,7 +87,7 @@ export class InMemoryProductRepository implements ProductRepository {
         phone: '1',
         description: null,
         createdAt: now,
-        isDemo: false,
+        isSample: false,
         city: { id: 'semey', nameRu: 'Семей', nameKk: 'Семей' },
       },
     } satisfies ProductDetailsRecord;

@@ -3,7 +3,7 @@
 import { MapPin } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import { CategoryIcon, DemoBadge, localizedName } from "@/entities/catalog";
+import { CategoryIcon, localizedName, SampleBadge } from "@/entities/catalog";
 import { Link } from "@/shared/configs/i18/navigation";
 import type { SupplierDto } from "../model/types";
 
@@ -27,7 +27,9 @@ export function SupplierCard({ supplier }: { supplier: SupplierDto }) {
             {t(`companyTypes.${supplier.type}`)}
           </span>
         </div>
-        {supplier.isDemo ? <DemoBadge label={t("common.demoData")} /> : null}
+        {supplier.isSample ? (
+          <SampleBadge label={t("common.sampleData")} />
+        ) : null}
       </div>
       <p className="flex items-center gap-1.5 text-muted-foreground">
         <MapPin className="size-4" aria-hidden />

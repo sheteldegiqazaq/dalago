@@ -50,7 +50,7 @@ export type PurchaseRequestMinAggregateOutputType = {
   deliveryAddress: string | null
   desiredDate: Date | null
   status: $Enums.RequestStatus | null
-  isDemo: boolean | null
+  isSample: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
   closedAt: Date | null
@@ -70,7 +70,7 @@ export type PurchaseRequestMaxAggregateOutputType = {
   deliveryAddress: string | null
   desiredDate: Date | null
   status: $Enums.RequestStatus | null
-  isDemo: boolean | null
+  isSample: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
   closedAt: Date | null
@@ -90,7 +90,7 @@ export type PurchaseRequestCountAggregateOutputType = {
   deliveryAddress: number
   desiredDate: number
   status: number
-  isDemo: number
+  isSample: number
   createdAt: number
   updatedAt: number
   closedAt: number
@@ -122,7 +122,7 @@ export type PurchaseRequestMinAggregateInputType = {
   deliveryAddress?: true
   desiredDate?: true
   status?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
   closedAt?: true
@@ -142,7 +142,7 @@ export type PurchaseRequestMaxAggregateInputType = {
   deliveryAddress?: true
   desiredDate?: true
   status?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
   closedAt?: true
@@ -162,7 +162,7 @@ export type PurchaseRequestCountAggregateInputType = {
   deliveryAddress?: true
   desiredDate?: true
   status?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
   closedAt?: true
@@ -269,7 +269,7 @@ export type PurchaseRequestGroupByOutputType = {
   deliveryAddress: string | null
   desiredDate: Date
   status: $Enums.RequestStatus
-  isDemo: boolean
+  isSample: boolean
   createdAt: Date
   updatedAt: Date
   closedAt: Date | null
@@ -312,7 +312,7 @@ export type PurchaseRequestWhereInput = {
   deliveryAddress?: Prisma.StringNullableFilter<"PurchaseRequest"> | string | null
   desiredDate?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   status?: Prisma.EnumRequestStatusFilter<"PurchaseRequest"> | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFilter<"PurchaseRequest"> | boolean
+  isSample?: Prisma.BoolFilter<"PurchaseRequest"> | boolean
   createdAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   closedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
@@ -337,7 +337,7 @@ export type PurchaseRequestOrderByWithRelationInput = {
   deliveryAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   desiredDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -365,7 +365,7 @@ export type PurchaseRequestWhereUniqueInput = Prisma.AtLeast<{
   deliveryAddress?: Prisma.StringNullableFilter<"PurchaseRequest"> | string | null
   desiredDate?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   status?: Prisma.EnumRequestStatusFilter<"PurchaseRequest"> | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFilter<"PurchaseRequest"> | boolean
+  isSample?: Prisma.BoolFilter<"PurchaseRequest"> | boolean
   createdAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   closedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
@@ -390,7 +390,7 @@ export type PurchaseRequestOrderByWithAggregationInput = {
   deliveryAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   desiredDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -418,7 +418,7 @@ export type PurchaseRequestScalarWhereWithAggregatesInput = {
   deliveryAddress?: Prisma.StringNullableWithAggregatesFilter<"PurchaseRequest"> | string | null
   desiredDate?: Prisma.DateTimeWithAggregatesFilter<"PurchaseRequest"> | Date | string
   status?: Prisma.EnumRequestStatusWithAggregatesFilter<"PurchaseRequest"> | $Enums.RequestStatus
-  isDemo?: Prisma.BoolWithAggregatesFilter<"PurchaseRequest"> | boolean
+  isSample?: Prisma.BoolWithAggregatesFilter<"PurchaseRequest"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"PurchaseRequest"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"PurchaseRequest"> | Date | string
   closedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PurchaseRequest"> | Date | string | null
@@ -435,7 +435,7 @@ export type PurchaseRequestCreateInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -460,7 +460,7 @@ export type PurchaseRequestUncheckedCreateInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -479,7 +479,7 @@ export type PurchaseRequestUpdateInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -504,7 +504,7 @@ export type PurchaseRequestUncheckedUpdateInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -526,7 +526,7 @@ export type PurchaseRequestCreateManyInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -543,7 +543,7 @@ export type PurchaseRequestUpdateManyMutationInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -563,7 +563,7 @@ export type PurchaseRequestUncheckedUpdateManyInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -593,7 +593,7 @@ export type PurchaseRequestCountOrderByAggregateInput = {
   deliveryAddress?: Prisma.SortOrder
   desiredDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrder
@@ -618,7 +618,7 @@ export type PurchaseRequestMaxOrderByAggregateInput = {
   deliveryAddress?: Prisma.SortOrder
   desiredDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrder
@@ -638,7 +638,7 @@ export type PurchaseRequestMinOrderByAggregateInput = {
   deliveryAddress?: Prisma.SortOrder
   desiredDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   closedAt?: Prisma.SortOrder
@@ -842,7 +842,7 @@ export type PurchaseRequestCreateWithoutDeliveryCityInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -865,7 +865,7 @@ export type PurchaseRequestUncheckedCreateWithoutDeliveryCityInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -916,7 +916,7 @@ export type PurchaseRequestScalarWhereInput = {
   deliveryAddress?: Prisma.StringNullableFilter<"PurchaseRequest"> | string | null
   desiredDate?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   status?: Prisma.EnumRequestStatusFilter<"PurchaseRequest"> | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFilter<"PurchaseRequest"> | boolean
+  isSample?: Prisma.BoolFilter<"PurchaseRequest"> | boolean
   createdAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   closedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
@@ -933,7 +933,7 @@ export type PurchaseRequestCreateWithoutCategoryInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -956,7 +956,7 @@ export type PurchaseRequestUncheckedCreateWithoutCategoryInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1001,7 +1001,7 @@ export type PurchaseRequestCreateWithoutBuyerInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1024,7 +1024,7 @@ export type PurchaseRequestUncheckedCreateWithoutBuyerInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1069,7 +1069,7 @@ export type PurchaseRequestCreateWithoutOffersInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1093,7 +1093,7 @@ export type PurchaseRequestUncheckedCreateWithoutOffersInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1127,7 +1127,7 @@ export type PurchaseRequestUpdateWithoutOffersInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1151,7 +1151,7 @@ export type PurchaseRequestUncheckedUpdateWithoutOffersInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1169,7 +1169,7 @@ export type PurchaseRequestCreateWithoutInquiriesInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1193,7 +1193,7 @@ export type PurchaseRequestUncheckedCreateWithoutInquiriesInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1227,7 +1227,7 @@ export type PurchaseRequestUpdateWithoutInquiriesInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1251,7 +1251,7 @@ export type PurchaseRequestUncheckedUpdateWithoutInquiriesInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1271,7 +1271,7 @@ export type PurchaseRequestCreateManyDeliveryCityInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1288,7 +1288,7 @@ export type PurchaseRequestUpdateWithoutDeliveryCityInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1311,7 +1311,7 @@ export type PurchaseRequestUncheckedUpdateWithoutDeliveryCityInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1332,7 +1332,7 @@ export type PurchaseRequestUncheckedUpdateManyWithoutDeliveryCityInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1351,7 +1351,7 @@ export type PurchaseRequestCreateManyCategoryInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1368,7 +1368,7 @@ export type PurchaseRequestUpdateWithoutCategoryInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1391,7 +1391,7 @@ export type PurchaseRequestUncheckedUpdateWithoutCategoryInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1412,7 +1412,7 @@ export type PurchaseRequestUncheckedUpdateManyWithoutCategoryInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1431,7 +1431,7 @@ export type PurchaseRequestCreateManyBuyerInput = {
   deliveryAddress?: string | null
   desiredDate: Date | string
   status?: $Enums.RequestStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   closedAt?: Date | string | null
@@ -1448,7 +1448,7 @@ export type PurchaseRequestUpdateWithoutBuyerInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1471,7 +1471,7 @@ export type PurchaseRequestUncheckedUpdateWithoutBuyerInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1492,7 +1492,7 @@ export type PurchaseRequestUncheckedUpdateManyWithoutBuyerInput = {
   deliveryAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   desiredDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumRequestStatusFieldUpdateOperationsInput | $Enums.RequestStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1552,7 +1552,7 @@ export type PurchaseRequestSelect<ExtArgs extends runtime.Types.Extensions.Inter
   deliveryAddress?: boolean
   desiredDate?: boolean
   status?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   closedAt?: boolean
@@ -1578,7 +1578,7 @@ export type PurchaseRequestSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   deliveryAddress?: boolean
   desiredDate?: boolean
   status?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   closedAt?: boolean
@@ -1601,7 +1601,7 @@ export type PurchaseRequestSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   deliveryAddress?: boolean
   desiredDate?: boolean
   status?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   closedAt?: boolean
@@ -1624,13 +1624,13 @@ export type PurchaseRequestSelectScalar = {
   deliveryAddress?: boolean
   desiredDate?: boolean
   status?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   closedAt?: boolean
 }
 
-export type PurchaseRequestOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "buyerCompanyId" | "categoryId" | "title" | "description" | "quantity" | "unit" | "targetPrice" | "currency" | "deliveryCityId" | "deliveryAddress" | "desiredDate" | "status" | "isDemo" | "createdAt" | "updatedAt" | "closedAt", ExtArgs["result"]["purchaseRequest"]>
+export type PurchaseRequestOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "buyerCompanyId" | "categoryId" | "title" | "description" | "quantity" | "unit" | "targetPrice" | "currency" | "deliveryCityId" | "deliveryAddress" | "desiredDate" | "status" | "isSample" | "createdAt" | "updatedAt" | "closedAt", ExtArgs["result"]["purchaseRequest"]>
 export type PurchaseRequestInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   buyer?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
   category?: boolean | Prisma.PurchaseRequest$categoryArgs<ExtArgs>
@@ -1673,7 +1673,7 @@ export type $PurchaseRequestPayload<ExtArgs extends runtime.Types.Extensions.Int
     deliveryAddress: string | null
     desiredDate: Date
     status: $Enums.RequestStatus
-    isDemo: boolean
+    isSample: boolean
     createdAt: Date
     updatedAt: Date
     closedAt: Date | null
@@ -2118,7 +2118,7 @@ export interface PurchaseRequestFieldRefs {
   readonly deliveryAddress: Prisma.FieldRef<"PurchaseRequest", 'String'>
   readonly desiredDate: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
   readonly status: Prisma.FieldRef<"PurchaseRequest", 'RequestStatus'>
-  readonly isDemo: Prisma.FieldRef<"PurchaseRequest", 'Boolean'>
+  readonly isSample: Prisma.FieldRef<"PurchaseRequest", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
   readonly closedAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>

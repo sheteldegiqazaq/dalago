@@ -129,6 +129,6 @@ export class MarketplaceStatsDto {
   @ApiProperty()
   citiesWithSuppliers!: number;
 
-  @ApiProperty({ description: 'В базе только демонстрационные компании' })
-  demoRecordsOnly!: boolean;
+  @ApiProperty({ description: 'В базе только компании-примеры из сида' })
+  sampleRecordsOnly!: boolean;
 }

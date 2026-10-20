@@ -50,7 +50,7 @@ export type OfferMinAggregateOutputType = {
   estimatedDeliveryDate: Date | null
   terms: string | null
   status: $Enums.OfferStatus | null
-  isDemo: boolean | null
+  isSample: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -67,7 +67,7 @@ export type OfferMaxAggregateOutputType = {
   estimatedDeliveryDate: Date | null
   terms: string | null
   status: $Enums.OfferStatus | null
-  isDemo: boolean | null
+  isSample: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -84,7 +84,7 @@ export type OfferCountAggregateOutputType = {
   estimatedDeliveryDate: number
   terms: number
   status: number
-  isDemo: number
+  isSample: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -115,7 +115,7 @@ export type OfferMinAggregateInputType = {
   estimatedDeliveryDate?: true
   terms?: true
   status?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -132,7 +132,7 @@ export type OfferMaxAggregateInputType = {
   estimatedDeliveryDate?: true
   terms?: true
   status?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -149,7 +149,7 @@ export type OfferCountAggregateInputType = {
   estimatedDeliveryDate?: true
   terms?: true
   status?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -253,7 +253,7 @@ export type OfferGroupByOutputType = {
   estimatedDeliveryDate: Date
   terms: string | null
   status: $Enums.OfferStatus
-  isDemo: boolean
+  isSample: boolean
   createdAt: Date
   updatedAt: Date
   _count: OfferCountAggregateOutputType | null
@@ -293,7 +293,7 @@ export type OfferWhereInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFilter<"Offer"> | Date | string
   terms?: Prisma.StringNullableFilter<"Offer"> | string | null
   status?: Prisma.EnumOfferStatusFilter<"Offer"> | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFilter<"Offer"> | boolean
+  isSample?: Prisma.BoolFilter<"Offer"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Offer"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Offer"> | Date | string
   request?: Prisma.XOR<Prisma.PurchaseRequestScalarRelationFilter, Prisma.PurchaseRequestWhereInput>
@@ -313,7 +313,7 @@ export type OfferOrderByWithRelationInput = {
   estimatedDeliveryDate?: Prisma.SortOrder
   terms?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   request?: Prisma.PurchaseRequestOrderByWithRelationInput
@@ -337,7 +337,7 @@ export type OfferWhereUniqueInput = Prisma.AtLeast<{
   estimatedDeliveryDate?: Prisma.DateTimeFilter<"Offer"> | Date | string
   terms?: Prisma.StringNullableFilter<"Offer"> | string | null
   status?: Prisma.EnumOfferStatusFilter<"Offer"> | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFilter<"Offer"> | boolean
+  isSample?: Prisma.BoolFilter<"Offer"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Offer"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Offer"> | Date | string
   request?: Prisma.XOR<Prisma.PurchaseRequestScalarRelationFilter, Prisma.PurchaseRequestWhereInput>
@@ -357,7 +357,7 @@ export type OfferOrderByWithAggregationInput = {
   estimatedDeliveryDate?: Prisma.SortOrder
   terms?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.OfferCountOrderByAggregateInput
@@ -382,7 +382,7 @@ export type OfferScalarWhereWithAggregatesInput = {
   estimatedDeliveryDate?: Prisma.DateTimeWithAggregatesFilter<"Offer"> | Date | string
   terms?: Prisma.StringNullableWithAggregatesFilter<"Offer"> | string | null
   status?: Prisma.EnumOfferStatusWithAggregatesFilter<"Offer"> | $Enums.OfferStatus
-  isDemo?: Prisma.BoolWithAggregatesFilter<"Offer"> | boolean
+  isSample?: Prisma.BoolWithAggregatesFilter<"Offer"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Offer"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Offer"> | Date | string
 }
@@ -396,7 +396,7 @@ export type OfferCreateInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   request: Prisma.PurchaseRequestCreateNestedOneWithoutOffersInput
@@ -416,7 +416,7 @@ export type OfferUncheckedCreateInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -430,7 +430,7 @@ export type OfferUpdateInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   request?: Prisma.PurchaseRequestUpdateOneRequiredWithoutOffersNestedInput
@@ -450,7 +450,7 @@ export type OfferUncheckedUpdateInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -467,7 +467,7 @@ export type OfferCreateManyInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -481,7 +481,7 @@ export type OfferUpdateManyMutationInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -498,7 +498,7 @@ export type OfferUncheckedUpdateManyInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -530,7 +530,7 @@ export type OfferCountOrderByAggregateInput = {
   estimatedDeliveryDate?: Prisma.SortOrder
   terms?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -553,7 +553,7 @@ export type OfferMaxOrderByAggregateInput = {
   estimatedDeliveryDate?: Prisma.SortOrder
   terms?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -570,7 +570,7 @@ export type OfferMinOrderByAggregateInput = {
   estimatedDeliveryDate?: Prisma.SortOrder
   terms?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -720,7 +720,7 @@ export type OfferCreateWithoutSupplierInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   request: Prisma.PurchaseRequestCreateNestedOneWithoutOffersInput
@@ -738,7 +738,7 @@ export type OfferUncheckedCreateWithoutSupplierInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -784,7 +784,7 @@ export type OfferScalarWhereInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFilter<"Offer"> | Date | string
   terms?: Prisma.StringNullableFilter<"Offer"> | string | null
   status?: Prisma.EnumOfferStatusFilter<"Offer"> | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFilter<"Offer"> | boolean
+  isSample?: Prisma.BoolFilter<"Offer"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Offer"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Offer"> | Date | string
 }
@@ -798,7 +798,7 @@ export type OfferCreateWithoutProductInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   request: Prisma.PurchaseRequestCreateNestedOneWithoutOffersInput
@@ -816,7 +816,7 @@ export type OfferUncheckedCreateWithoutProductInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -856,7 +856,7 @@ export type OfferCreateWithoutRequestInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   supplier: Prisma.CompanyCreateNestedOneWithoutOffersInput
@@ -874,7 +874,7 @@ export type OfferUncheckedCreateWithoutRequestInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -916,7 +916,7 @@ export type OfferCreateManySupplierInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -930,7 +930,7 @@ export type OfferUpdateWithoutSupplierInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   request?: Prisma.PurchaseRequestUpdateOneRequiredWithoutOffersNestedInput
@@ -948,7 +948,7 @@ export type OfferUncheckedUpdateWithoutSupplierInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -964,7 +964,7 @@ export type OfferUncheckedUpdateManyWithoutSupplierInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -980,7 +980,7 @@ export type OfferCreateManyProductInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -994,7 +994,7 @@ export type OfferUpdateWithoutProductInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   request?: Prisma.PurchaseRequestUpdateOneRequiredWithoutOffersNestedInput
@@ -1012,7 +1012,7 @@ export type OfferUncheckedUpdateWithoutProductInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1028,7 +1028,7 @@ export type OfferUncheckedUpdateManyWithoutProductInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1044,7 +1044,7 @@ export type OfferCreateManyRequestInput = {
   estimatedDeliveryDate: Date | string
   terms?: string | null
   status?: $Enums.OfferStatus
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1058,7 +1058,7 @@ export type OfferUpdateWithoutRequestInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.CompanyUpdateOneRequiredWithoutOffersNestedInput
@@ -1076,7 +1076,7 @@ export type OfferUncheckedUpdateWithoutRequestInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1092,7 +1092,7 @@ export type OfferUncheckedUpdateManyWithoutRequestInput = {
   estimatedDeliveryDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   terms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumOfferStatusFieldUpdateOperationsInput | $Enums.OfferStatus
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1111,7 +1111,7 @@ export type OfferSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   estimatedDeliveryDate?: boolean
   terms?: boolean
   status?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   request?: boolean | Prisma.PurchaseRequestDefaultArgs<ExtArgs>
@@ -1131,7 +1131,7 @@ export type OfferSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   estimatedDeliveryDate?: boolean
   terms?: boolean
   status?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   request?: boolean | Prisma.PurchaseRequestDefaultArgs<ExtArgs>
@@ -1151,7 +1151,7 @@ export type OfferSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   estimatedDeliveryDate?: boolean
   terms?: boolean
   status?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   request?: boolean | Prisma.PurchaseRequestDefaultArgs<ExtArgs>
@@ -1171,12 +1171,12 @@ export type OfferSelectScalar = {
   estimatedDeliveryDate?: boolean
   terms?: boolean
   status?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type OfferOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "requestId" | "supplierCompanyId" | "productId" | "quantity" | "pricePerUnit" | "currency" | "deliveryCost" | "estimatedDeliveryDate" | "terms" | "status" | "isDemo" | "createdAt" | "updatedAt", ExtArgs["result"]["offer"]>
+export type OfferOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "requestId" | "supplierCompanyId" | "productId" | "quantity" | "pricePerUnit" | "currency" | "deliveryCost" | "estimatedDeliveryDate" | "terms" | "status" | "isSample" | "createdAt" | "updatedAt", ExtArgs["result"]["offer"]>
 export type OfferInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   request?: boolean | Prisma.PurchaseRequestDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
@@ -1212,7 +1212,7 @@ export type $OfferPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     estimatedDeliveryDate: Date
     terms: string | null
     status: $Enums.OfferStatus
-    isDemo: boolean
+    isSample: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["offer"]>
@@ -1652,7 +1652,7 @@ export interface OfferFieldRefs {
   readonly estimatedDeliveryDate: Prisma.FieldRef<"Offer", 'DateTime'>
   readonly terms: Prisma.FieldRef<"Offer", 'String'>
   readonly status: Prisma.FieldRef<"Offer", 'OfferStatus'>
-  readonly isDemo: Prisma.FieldRef<"Offer", 'Boolean'>
+  readonly isSample: Prisma.FieldRef<"Offer", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Offer", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Offer", 'DateTime'>
 }

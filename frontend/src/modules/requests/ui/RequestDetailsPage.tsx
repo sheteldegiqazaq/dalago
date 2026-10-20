@@ -15,7 +15,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useState } from "react";
 import { toast } from "sonner";
 
-import { CategoryIcon, DemoBadge, localizedName } from "@/entities/catalog";
+import { CategoryIcon, localizedName, SampleBadge } from "@/entities/catalog";
 import { OfferStatusBadge, RequestStatusBadge } from "@/entities/procurement";
 import { StartInquiryDialog } from "@/modules/inquiries";
 import { useSession } from "@/modules/session";
@@ -109,7 +109,7 @@ export function RequestDetailsPage({ id }: { id: string }) {
               {localizedName(locale, r.category)}
             </span>
           ) : null}
-          {r.isDemo ? <DemoBadge label={t("common.demoRecord")} /> : null}
+          {r.isSample ? <SampleBadge label={t("common.sampleRecord")} /> : null}
         </div>
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-start">
           <h1 className="text-3xl font-semibold md:text-4xl">{r.title}</h1>

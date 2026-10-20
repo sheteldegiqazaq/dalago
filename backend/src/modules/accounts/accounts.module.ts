@@ -15,6 +15,7 @@ import { SessionService } from './services/session.service';
 import { GetMeUseCase } from './use-cases/get-me.use-case';
 import { LoginUseCase } from './use-cases/login.use-case';
 import { RegisterUseCase } from './use-cases/register.use-case';
+import { StartSampleSessionUseCase } from './use-cases/start-sample-session.use-case';
 import { UpdateMeUseCase } from './use-cases/update-me.use-case';
 
 @Module({
@@ -45,6 +46,12 @@ import { UpdateMeUseCase } from './use-cases/update-me.use-case';
         sessions: SessionService,
       ) => new LoginUseCase(accounts, hasher, sessions),
       inject: [ACCOUNT_REPOSITORY, PASSWORD_HASHER, SessionService],
+    },
+    {
+      provide: StartSampleSessionUseCase,
+      useFactory: (accounts: AccountRepository, sessions: SessionService) =>
+        new StartSampleSessionUseCase(accounts, sessions),
+      inject: [ACCOUNT_REPOSITORY, SessionService],
     },
     {
       provide: GetMeUseCase,

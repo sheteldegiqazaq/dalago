@@ -8,24 +8,23 @@ import { Button } from "@/shared/components/ui/button";
 import { useRouter } from "@/shared/configs/i18/navigation";
 import { useErrorMessage } from "@/shared/hooks";
 import { safeNextPath } from "../lib/safe-next";
-import { DEMO_ACCOUNTS, DEMO_PASSWORD } from "../model/constants/demo";
-import { useLogin } from "../model/mutations/use-auth-mutations";
+import { useSampleSession } from "../model/mutations/use-auth-mutations";
 
-type DemoAccessProps = {
+type SampleAccessProps = {
   next?: string | null;
   compact?: boolean;
 };
 
-/** Вход в демо-аккаунт одним нажатием — для показа жюри и тестирования. */
-export function DemoAccess({ next, compact }: DemoAccessProps) {
+/** Вход в общий аккаунт-пример одним нажатием — чтобы попробовать площадку без регистрации. */
+export function SampleAccess({ next, compact }: SampleAccessProps) {
   const t = useTranslations("auth");
   const router = useRouter();
-  const login = useLogin();
+  const sampleSession = useSampleSession();
   const errorMessage = useErrorMessage();
 
-  const enter = (email: string) =>
-    login.mutate(
-      { email, password: DEMO_PASSWORD },
+  const enter = (role: "BUYER" | "SUPPLIER") =>
+    sampleSession.mutate(
+      { role },
       {
         onSuccess: () => {
           toast.success(t("loggedIn"));
@@ -38,24 +37,24 @@ export function DemoAccess({ next, compact }: DemoAccessProps) {
   const accounts = [
     {
       key: "buyer",
-      email: DEMO_ACCOUNTS.buyer,
+      role: "BUYER",
       icon: Store,
-      title: t("demoBuyer"),
-      text: t("demoBuyerText"),
+      title: t("sampleBuyer"),
+      text: t("sampleBuyerText"),
     },
     {
       key: "supplier",
-      email: DEMO_ACCOUNTS.supplier,
+      role: "SUPPLIER",
       icon: Tractor,
-      title: t("demoSupplier"),
-      text: t("demoSupplierText"),
+      title: t("sampleSupplier"),
+      text: t("sampleSupplierText"),
     },
-  ];
+  ] as const;
 
   return (
     <div className="flex flex-col gap-4">
       <div className={compact ? "grid gap-3" : "grid gap-4 md:grid-cols-2"}>
-        {accounts.map(({ key, email, icon: Icon, title, text }) => (
+        {accounts.map(({ key, role, icon: Icon, title, text }) => (
           <div
             key={key}
             className="flex flex-col gap-3 rounded-xl border bg-card p-5"
@@ -70,23 +69,21 @@ export function DemoAccess({ next, compact }: DemoAccessProps) {
             <Button
               size="lg"
               variant={key === "buyer" ? "default" : "outline"}
-              onClick={() => enter(email)}
-              disabled={login.isPending}
-              aria-describedby={`demo-${key}-hint`}
+              onClick={() => enter(role)}
+              disabled={sampleSession.isPending}
+              aria-describedby={`sample-${key}-hint`}
             >
-              {login.isPending && login.variables?.email === email
+              {sampleSession.isPending && sampleSession.variables?.role === role
                 ? "…"
                 : title}
             </Button>
-            <span id={`demo-${key}-hint`} className="sr-only">
+            <span id={`sample-${key}-hint`} className="sr-only">
               {text}
             </span>
           </div>
         ))}
       </div>
-      <p className="text-sm text-muted-foreground">
-        {t("demoPassword", { password: DEMO_PASSWORD })}. {t("demoDisclaimer")}
-      </p>
+      <p className="text-sm text-muted-foreground">{t("sampleDisclaimer")}</p>
     </div>
   );
 }

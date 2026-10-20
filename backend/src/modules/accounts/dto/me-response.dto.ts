@@ -24,7 +24,7 @@ export class MyCompanyDto {
   phone!: string;
 
   @ApiProperty()
-  isDemo!: boolean;
+  isSample!: boolean;
 }
 
 export class MeResponseDto {

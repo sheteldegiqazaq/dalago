@@ -16,10 +16,10 @@ import type { ReactNode } from "react";
 
 import {
   CategoryVisual,
-  DemoBadge,
   localizedDescription,
   localizedName,
   localizedTitle,
+  SampleBadge,
 } from "@/entities/catalog";
 import { ProductStatusBadge } from "@/entities/procurement";
 import { StartInquiryDialog } from "@/modules/inquiries";
@@ -144,7 +144,7 @@ export function ProductDetailsPage({ id }: { id: string }) {
               {localizedName(locale, p.category)}
             </span>
             {p.isOwner ? <ProductStatusBadge status={p.status} /> : null}
-            {p.isDemo ? <DemoBadge label={t("common.demoData")} /> : null}
+            {p.isSample ? <SampleBadge label={t("common.sampleData")} /> : null}
           </div>
           <h1 className="text-3xl font-semibold md:text-4xl">{title}</h1>
           <p className="flex items-baseline gap-2">
@@ -226,7 +226,7 @@ export function ProductDetailsPage({ id }: { id: string }) {
             <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
             <span>
               {t("product.availabilityNote")}{" "}
-              {p.isDemo ? t("product.demoNote") : ""}
+              {p.isSample ? t("product.sampleNote") : ""}
             </span>
           </p>
         </div>

@@ -7,7 +7,7 @@ export const supplierSelect = {
   description: true,
   address: true,
   phone: true,
-  isDemo: true,
+  isSample: true,
   createdAt: true,
   city: { select: { id: true, nameRu: true, nameKk: true, regionId: true } },
   products: {

@@ -6,9 +6,11 @@ import {
   type AuthResponseDto,
   authControllerSignIn,
   authControllerSignUp,
+  authControllerStartSampleSession,
   getAuthControllerMeQueryKey,
   type LoginDto,
   type RegisterDto,
+  type SampleSessionDto,
 } from "@/shared/api/generated";
 import { authToken, queryClient } from "@/shared/lib/client";
 
@@ -25,6 +27,14 @@ function startSession(response: AuthResponseDto) {
 export function useLogin() {
   return useMutation({
     mutationFn: (body: LoginDto) => authControllerSignIn(body),
+    onSuccess: startSession,
+  });
+}
+
+export function useSampleSession() {
+  return useMutation({
+    mutationFn: (body: SampleSessionDto) =>
+      authControllerStartSampleSession(body),
     onSuccess: startSession,
   });
 }

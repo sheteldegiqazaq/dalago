@@ -31,6 +31,8 @@ export type UpdateAccountData = {
 export interface AccountRepository {
   findByEmail(email: string): Promise<Account | null>;
   findById(id: string): Promise<Account | null>;
+  /** Самый ранний аккаунт компании-примера с этой ролью (порядок сида стабилен). */
+  findFirstSample(role: UserRole): Promise<Account | null>;
   emailExists(email: string): Promise<boolean>;
   cityExists(cityId: string): Promise<boolean>;
   /** Пользователь и его компания создаются атомарно (вложенный create). */

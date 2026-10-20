@@ -33,7 +33,7 @@ export type CompanyMinAggregateOutputType = {
   cityId: string | null
   address: string | null
   phone: string | null
-  isDemo: boolean | null
+  isSample: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -47,7 +47,7 @@ export type CompanyMaxAggregateOutputType = {
   cityId: string | null
   address: string | null
   phone: string | null
-  isDemo: boolean | null
+  isSample: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -61,7 +61,7 @@ export type CompanyCountAggregateOutputType = {
   cityId: number
   address: number
   phone: number
-  isDemo: number
+  isSample: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -77,7 +77,7 @@ export type CompanyMinAggregateInputType = {
   cityId?: true
   address?: true
   phone?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -91,7 +91,7 @@ export type CompanyMaxAggregateInputType = {
   cityId?: true
   address?: true
   phone?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -105,7 +105,7 @@ export type CompanyCountAggregateInputType = {
   cityId?: true
   address?: true
   phone?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -192,7 +192,7 @@ export type CompanyGroupByOutputType = {
   cityId: string
   address: string | null
   phone: string
-  isDemo: boolean
+  isSample: boolean
   createdAt: Date
   updatedAt: Date
   _count: CompanyCountAggregateOutputType | null
@@ -227,7 +227,7 @@ export type CompanyWhereInput = {
   cityId?: Prisma.StringFilter<"Company"> | string
   address?: Prisma.StringNullableFilter<"Company"> | string | null
   phone?: Prisma.StringFilter<"Company"> | string
-  isDemo?: Prisma.BoolFilter<"Company"> | boolean
+  isSample?: Prisma.BoolFilter<"Company"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Company"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Company"> | Date | string
   owner?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -248,7 +248,7 @@ export type CompanyOrderByWithRelationInput = {
   cityId?: Prisma.SortOrder
   address?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   owner?: Prisma.UserOrderByWithRelationInput
@@ -272,7 +272,7 @@ export type CompanyWhereUniqueInput = Prisma.AtLeast<{
   cityId?: Prisma.StringFilter<"Company"> | string
   address?: Prisma.StringNullableFilter<"Company"> | string | null
   phone?: Prisma.StringFilter<"Company"> | string
-  isDemo?: Prisma.BoolFilter<"Company"> | boolean
+  isSample?: Prisma.BoolFilter<"Company"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Company"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Company"> | Date | string
   owner?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -293,7 +293,7 @@ export type CompanyOrderByWithAggregationInput = {
   cityId?: Prisma.SortOrder
   address?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.CompanyCountOrderByAggregateInput
@@ -313,7 +313,7 @@ export type CompanyScalarWhereWithAggregatesInput = {
   cityId?: Prisma.StringWithAggregatesFilter<"Company"> | string
   address?: Prisma.StringNullableWithAggregatesFilter<"Company"> | string | null
   phone?: Prisma.StringWithAggregatesFilter<"Company"> | string
-  isDemo?: Prisma.BoolWithAggregatesFilter<"Company"> | boolean
+  isSample?: Prisma.BoolWithAggregatesFilter<"Company"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Company"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Company"> | Date | string
 }
@@ -325,7 +325,7 @@ export type CompanyCreateInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   owner: Prisma.UserCreateNestedOneWithoutCompanyInput
@@ -346,7 +346,7 @@ export type CompanyUncheckedCreateInput = {
   cityId: string
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutSupplierInput
@@ -363,7 +363,7 @@ export type CompanyUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   owner?: Prisma.UserUpdateOneRequiredWithoutCompanyNestedInput
@@ -384,7 +384,7 @@ export type CompanyUncheckedUpdateInput = {
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   products?: Prisma.ProductUncheckedUpdateManyWithoutSupplierNestedInput
@@ -403,7 +403,7 @@ export type CompanyCreateManyInput = {
   cityId: string
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -415,7 +415,7 @@ export type CompanyUpdateManyMutationInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -429,7 +429,7 @@ export type CompanyUncheckedUpdateManyInput = {
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -458,7 +458,7 @@ export type CompanyCountOrderByAggregateInput = {
   cityId?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -472,7 +472,7 @@ export type CompanyMaxOrderByAggregateInput = {
   cityId?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -486,7 +486,7 @@ export type CompanyMinOrderByAggregateInput = {
   cityId?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -651,7 +651,7 @@ export type CompanyCreateWithoutOwnerInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   city: Prisma.CityCreateNestedOneWithoutCompaniesInput
@@ -670,7 +670,7 @@ export type CompanyUncheckedCreateWithoutOwnerInput = {
   cityId: string
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutSupplierInput
@@ -703,7 +703,7 @@ export type CompanyUpdateWithoutOwnerInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   city?: Prisma.CityUpdateOneRequiredWithoutCompaniesNestedInput
@@ -722,7 +722,7 @@ export type CompanyUncheckedUpdateWithoutOwnerInput = {
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   products?: Prisma.ProductUncheckedUpdateManyWithoutSupplierNestedInput
@@ -739,7 +739,7 @@ export type CompanyCreateWithoutCityInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   owner: Prisma.UserCreateNestedOneWithoutCompanyInput
@@ -758,7 +758,7 @@ export type CompanyUncheckedCreateWithoutCityInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutSupplierInput
@@ -806,7 +806,7 @@ export type CompanyScalarWhereInput = {
   cityId?: Prisma.StringFilter<"Company"> | string
   address?: Prisma.StringNullableFilter<"Company"> | string | null
   phone?: Prisma.StringFilter<"Company"> | string
-  isDemo?: Prisma.BoolFilter<"Company"> | boolean
+  isSample?: Prisma.BoolFilter<"Company"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Company"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Company"> | Date | string
 }
@@ -818,7 +818,7 @@ export type CompanyCreateWithoutProductsInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   owner: Prisma.UserCreateNestedOneWithoutCompanyInput
@@ -838,7 +838,7 @@ export type CompanyUncheckedCreateWithoutProductsInput = {
   cityId: string
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   requests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutBuyerInput
@@ -870,7 +870,7 @@ export type CompanyUpdateWithoutProductsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   owner?: Prisma.UserUpdateOneRequiredWithoutCompanyNestedInput
@@ -890,7 +890,7 @@ export type CompanyUncheckedUpdateWithoutProductsInput = {
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutBuyerNestedInput
@@ -906,7 +906,7 @@ export type CompanyCreateWithoutRequestsInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   owner: Prisma.UserCreateNestedOneWithoutCompanyInput
@@ -926,7 +926,7 @@ export type CompanyUncheckedCreateWithoutRequestsInput = {
   cityId: string
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutSupplierInput
@@ -958,7 +958,7 @@ export type CompanyUpdateWithoutRequestsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   owner?: Prisma.UserUpdateOneRequiredWithoutCompanyNestedInput
@@ -978,7 +978,7 @@ export type CompanyUncheckedUpdateWithoutRequestsInput = {
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   products?: Prisma.ProductUncheckedUpdateManyWithoutSupplierNestedInput
@@ -994,7 +994,7 @@ export type CompanyCreateWithoutOffersInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   owner: Prisma.UserCreateNestedOneWithoutCompanyInput
@@ -1014,7 +1014,7 @@ export type CompanyUncheckedCreateWithoutOffersInput = {
   cityId: string
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutSupplierInput
@@ -1046,7 +1046,7 @@ export type CompanyUpdateWithoutOffersInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   owner?: Prisma.UserUpdateOneRequiredWithoutCompanyNestedInput
@@ -1066,7 +1066,7 @@ export type CompanyUncheckedUpdateWithoutOffersInput = {
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   products?: Prisma.ProductUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1082,7 +1082,7 @@ export type CompanyCreateWithoutInquiriesStartedInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   owner: Prisma.UserCreateNestedOneWithoutCompanyInput
@@ -1102,7 +1102,7 @@ export type CompanyUncheckedCreateWithoutInquiriesStartedInput = {
   cityId: string
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutSupplierInput
@@ -1123,7 +1123,7 @@ export type CompanyCreateWithoutInquiriesReceivedInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   owner: Prisma.UserCreateNestedOneWithoutCompanyInput
@@ -1143,7 +1143,7 @@ export type CompanyUncheckedCreateWithoutInquiriesReceivedInput = {
   cityId: string
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   products?: Prisma.ProductUncheckedCreateNestedManyWithoutSupplierInput
@@ -1175,7 +1175,7 @@ export type CompanyUpdateWithoutInquiriesStartedInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   owner?: Prisma.UserUpdateOneRequiredWithoutCompanyNestedInput
@@ -1195,7 +1195,7 @@ export type CompanyUncheckedUpdateWithoutInquiriesStartedInput = {
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   products?: Prisma.ProductUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1222,7 +1222,7 @@ export type CompanyUpdateWithoutInquiriesReceivedInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   owner?: Prisma.UserUpdateOneRequiredWithoutCompanyNestedInput
@@ -1242,7 +1242,7 @@ export type CompanyUncheckedUpdateWithoutInquiriesReceivedInput = {
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   products?: Prisma.ProductUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1259,7 +1259,7 @@ export type CompanyCreateManyCityInput = {
   description?: string | null
   address?: string | null
   phone: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1271,7 +1271,7 @@ export type CompanyUpdateWithoutCityInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   owner?: Prisma.UserUpdateOneRequiredWithoutCompanyNestedInput
@@ -1290,7 +1290,7 @@ export type CompanyUncheckedUpdateWithoutCityInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   products?: Prisma.ProductUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1308,7 +1308,7 @@ export type CompanyUncheckedUpdateManyWithoutCityInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1389,7 +1389,7 @@ export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   cityId?: boolean
   address?: boolean
   phone?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1411,7 +1411,7 @@ export type CompanySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   cityId?: boolean
   address?: boolean
   phone?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1427,7 +1427,7 @@ export type CompanySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   cityId?: boolean
   address?: boolean
   phone?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1443,12 +1443,12 @@ export type CompanySelectScalar = {
   cityId?: boolean
   address?: boolean
   phone?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type CompanyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "ownerUserId" | "name" | "type" | "description" | "cityId" | "address" | "phone" | "isDemo" | "createdAt" | "updatedAt", ExtArgs["result"]["company"]>
+export type CompanyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "ownerUserId" | "name" | "type" | "description" | "cityId" | "address" | "phone" | "isSample" | "createdAt" | "updatedAt", ExtArgs["result"]["company"]>
 export type CompanyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   owner?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   city?: boolean | Prisma.CityDefaultArgs<ExtArgs>
@@ -1488,7 +1488,7 @@ export type $CompanyPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     cityId: string
     address: string | null
     phone: string
-    isDemo: boolean
+    isSample: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["company"]>
@@ -1929,7 +1929,7 @@ export interface CompanyFieldRefs {
   readonly cityId: Prisma.FieldRef<"Company", 'String'>
   readonly address: Prisma.FieldRef<"Company", 'String'>
   readonly phone: Prisma.FieldRef<"Company", 'String'>
-  readonly isDemo: Prisma.FieldRef<"Company", 'Boolean'>
+  readonly isSample: Prisma.FieldRef<"Company", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Company", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Company", 'DateTime'>
 }

@@ -1,6 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import type { NestExpressApplication } from '@nestjs/platform-express';
 import request from 'supertest';
+import {
+  SAMPLE_EMAIL_DOMAIN,
+  SAMPLE_PASSWORD,
+} from '../src/app/database/seeding/seed-database';
 import { setupApp } from '../src/app/setup-app';
 import { AppModule } from '../src/app.module';
 
@@ -32,7 +36,10 @@ describe('Users (e2e)', () => {
   it('rejects non-admin users', async () => {
     const login = await request(app.getHttpServer())
       .post('/api/auth/login')
-      .send({ email: 'buyer@demo.dalago.kz', password: 'demo12345' })
+      .send({
+        email: `buyer@${SAMPLE_EMAIL_DOMAIN}`,
+        password: SAMPLE_PASSWORD,
+      })
       .expect(200);
     const token = (login.body as { accessToken: string }).accessToken;
 

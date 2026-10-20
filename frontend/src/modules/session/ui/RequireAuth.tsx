@@ -10,9 +10,9 @@ import { LoadingBlock } from "@/shared/components/loading-block";
 import { Button } from "@/shared/components/ui/button";
 import { Link } from "@/shared/configs/i18/navigation";
 
-import { DEMO_MODE } from "../model/constants/demo";
+import { SAMPLE_ACCESS_ENABLED } from "../model/constants/sample-access";
 import { useSession } from "../model/queries/use-session";
-import { DemoAccess } from "./DemoAccess";
+import { SampleAccess } from "./SampleAccess";
 
 type RequireAuthProps = {
   allow?: "BUYER" | "SUPPLIER";
@@ -54,7 +54,7 @@ export function RequireAuth({ allow: role, children }: RequireAuthProps) {
             </Button>
           }
         />
-        {DEMO_MODE ? <DemoAccess next={next} /> : null}
+        {SAMPLE_ACCESS_ENABLED ? <SampleAccess next={next} /> : null}
       </div>
     );
   }
@@ -67,7 +67,7 @@ export function RequireAuth({ allow: role, children }: RequireAuthProps) {
           title={t("common.forbiddenRole")}
           text={t("common.forbiddenRoleText", { role: t(`roles.${role}`) })}
         />
-        {DEMO_MODE ? <DemoAccess next={next} compact /> : null}
+        {SAMPLE_ACCESS_ENABLED ? <SampleAccess next={next} compact /> : null}
       </div>
     );
   }

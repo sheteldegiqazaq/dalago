@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import { CategoryIcon, DemoBadge, localizedName } from "@/entities/catalog";
+import { CategoryIcon, localizedName, SampleBadge } from "@/entities/catalog";
 import { ProductCard } from "@/entities/product";
 import { useProducts } from "@/modules/catalog";
 import { StartInquiryDialog } from "@/modules/inquiries";
@@ -59,7 +59,9 @@ export function SupplierProfilePage({ id }: { id: string }) {
             <span className="rounded-md bg-secondary px-2.5 py-1 text-sm font-semibold text-secondary-foreground">
               {t(`companyTypes.${s.type}`)}
             </span>
-            {s.isDemo ? <DemoBadge label={t("common.demoRecord")} /> : null}
+            {s.isSample ? (
+              <SampleBadge label={t("common.sampleRecord")} />
+            ) : null}
           </div>
           <h1 className="text-3xl font-semibold md:text-4xl">{s.name}</h1>
           {s.description ? (

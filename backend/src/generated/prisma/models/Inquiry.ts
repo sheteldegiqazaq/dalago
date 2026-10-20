@@ -31,7 +31,7 @@ export type InquiryMinAggregateOutputType = {
   productId: string | null
   requestId: string | null
   subject: string | null
-  isDemo: boolean | null
+  isSample: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -43,7 +43,7 @@ export type InquiryMaxAggregateOutputType = {
   productId: string | null
   requestId: string | null
   subject: string | null
-  isDemo: boolean | null
+  isSample: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -55,7 +55,7 @@ export type InquiryCountAggregateOutputType = {
   productId: number
   requestId: number
   subject: number
-  isDemo: number
+  isSample: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -69,7 +69,7 @@ export type InquiryMinAggregateInputType = {
   productId?: true
   requestId?: true
   subject?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -81,7 +81,7 @@ export type InquiryMaxAggregateInputType = {
   productId?: true
   requestId?: true
   subject?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -93,7 +93,7 @@ export type InquiryCountAggregateInputType = {
   productId?: true
   requestId?: true
   subject?: true
-  isDemo?: true
+  isSample?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -178,7 +178,7 @@ export type InquiryGroupByOutputType = {
   productId: string | null
   requestId: string | null
   subject: string
-  isDemo: boolean
+  isSample: boolean
   createdAt: Date
   updatedAt: Date
   _count: InquiryCountAggregateOutputType | null
@@ -211,7 +211,7 @@ export type InquiryWhereInput = {
   productId?: Prisma.StringNullableFilter<"Inquiry"> | string | null
   requestId?: Prisma.StringNullableFilter<"Inquiry"> | string | null
   subject?: Prisma.StringFilter<"Inquiry"> | string
-  isDemo?: Prisma.BoolFilter<"Inquiry"> | boolean
+  isSample?: Prisma.BoolFilter<"Inquiry"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Inquiry"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Inquiry"> | Date | string
   fromCompany?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
@@ -228,7 +228,7 @@ export type InquiryOrderByWithRelationInput = {
   productId?: Prisma.SortOrderInput | Prisma.SortOrder
   requestId?: Prisma.SortOrderInput | Prisma.SortOrder
   subject?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   fromCompany?: Prisma.CompanyOrderByWithRelationInput
@@ -248,7 +248,7 @@ export type InquiryWhereUniqueInput = Prisma.AtLeast<{
   productId?: Prisma.StringNullableFilter<"Inquiry"> | string | null
   requestId?: Prisma.StringNullableFilter<"Inquiry"> | string | null
   subject?: Prisma.StringFilter<"Inquiry"> | string
-  isDemo?: Prisma.BoolFilter<"Inquiry"> | boolean
+  isSample?: Prisma.BoolFilter<"Inquiry"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Inquiry"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Inquiry"> | Date | string
   fromCompany?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
@@ -265,7 +265,7 @@ export type InquiryOrderByWithAggregationInput = {
   productId?: Prisma.SortOrderInput | Prisma.SortOrder
   requestId?: Prisma.SortOrderInput | Prisma.SortOrder
   subject?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.InquiryCountOrderByAggregateInput
@@ -283,7 +283,7 @@ export type InquiryScalarWhereWithAggregatesInput = {
   productId?: Prisma.StringNullableWithAggregatesFilter<"Inquiry"> | string | null
   requestId?: Prisma.StringNullableWithAggregatesFilter<"Inquiry"> | string | null
   subject?: Prisma.StringWithAggregatesFilter<"Inquiry"> | string
-  isDemo?: Prisma.BoolWithAggregatesFilter<"Inquiry"> | boolean
+  isSample?: Prisma.BoolWithAggregatesFilter<"Inquiry"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Inquiry"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Inquiry"> | Date | string
 }
@@ -291,7 +291,7 @@ export type InquiryScalarWhereWithAggregatesInput = {
 export type InquiryCreateInput = {
   id?: string
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   fromCompany: Prisma.CompanyCreateNestedOneWithoutInquiriesStartedInput
@@ -308,7 +308,7 @@ export type InquiryUncheckedCreateInput = {
   productId?: string | null
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   messages?: Prisma.InquiryMessageUncheckedCreateNestedManyWithoutInquiryInput
@@ -317,7 +317,7 @@ export type InquiryUncheckedCreateInput = {
 export type InquiryUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fromCompany?: Prisma.CompanyUpdateOneRequiredWithoutInquiriesStartedNestedInput
@@ -334,7 +334,7 @@ export type InquiryUncheckedUpdateInput = {
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.InquiryMessageUncheckedUpdateManyWithoutInquiryNestedInput
@@ -347,7 +347,7 @@ export type InquiryCreateManyInput = {
   productId?: string | null
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -355,7 +355,7 @@ export type InquiryCreateManyInput = {
 export type InquiryUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -367,7 +367,7 @@ export type InquiryUncheckedUpdateManyInput = {
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -389,7 +389,7 @@ export type InquiryCountOrderByAggregateInput = {
   productId?: Prisma.SortOrder
   requestId?: Prisma.SortOrder
   subject?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -401,7 +401,7 @@ export type InquiryMaxOrderByAggregateInput = {
   productId?: Prisma.SortOrder
   requestId?: Prisma.SortOrder
   subject?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -413,7 +413,7 @@ export type InquiryMinOrderByAggregateInput = {
   productId?: Prisma.SortOrder
   requestId?: Prisma.SortOrder
   subject?: Prisma.SortOrder
-  isDemo?: Prisma.SortOrder
+  isSample?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -608,7 +608,7 @@ export type InquiryUpdateOneRequiredWithoutMessagesNestedInput = {
 export type InquiryCreateWithoutFromCompanyInput = {
   id?: string
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   toCompany: Prisma.CompanyCreateNestedOneWithoutInquiriesReceivedInput
@@ -623,7 +623,7 @@ export type InquiryUncheckedCreateWithoutFromCompanyInput = {
   productId?: string | null
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   messages?: Prisma.InquiryMessageUncheckedCreateNestedManyWithoutInquiryInput
@@ -642,7 +642,7 @@ export type InquiryCreateManyFromCompanyInputEnvelope = {
 export type InquiryCreateWithoutToCompanyInput = {
   id?: string
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   fromCompany: Prisma.CompanyCreateNestedOneWithoutInquiriesStartedInput
@@ -657,7 +657,7 @@ export type InquiryUncheckedCreateWithoutToCompanyInput = {
   productId?: string | null
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   messages?: Prisma.InquiryMessageUncheckedCreateNestedManyWithoutInquiryInput
@@ -699,7 +699,7 @@ export type InquiryScalarWhereInput = {
   productId?: Prisma.StringNullableFilter<"Inquiry"> | string | null
   requestId?: Prisma.StringNullableFilter<"Inquiry"> | string | null
   subject?: Prisma.StringFilter<"Inquiry"> | string
-  isDemo?: Prisma.BoolFilter<"Inquiry"> | boolean
+  isSample?: Prisma.BoolFilter<"Inquiry"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Inquiry"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Inquiry"> | Date | string
 }
@@ -723,7 +723,7 @@ export type InquiryUpdateManyWithWhereWithoutToCompanyInput = {
 export type InquiryCreateWithoutProductInput = {
   id?: string
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   fromCompany: Prisma.CompanyCreateNestedOneWithoutInquiriesStartedInput
@@ -738,7 +738,7 @@ export type InquiryUncheckedCreateWithoutProductInput = {
   toCompanyId: string
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   messages?: Prisma.InquiryMessageUncheckedCreateNestedManyWithoutInquiryInput
@@ -773,7 +773,7 @@ export type InquiryUpdateManyWithWhereWithoutProductInput = {
 export type InquiryCreateWithoutRequestInput = {
   id?: string
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   fromCompany: Prisma.CompanyCreateNestedOneWithoutInquiriesStartedInput
@@ -788,7 +788,7 @@ export type InquiryUncheckedCreateWithoutRequestInput = {
   toCompanyId: string
   productId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   messages?: Prisma.InquiryMessageUncheckedCreateNestedManyWithoutInquiryInput
@@ -823,7 +823,7 @@ export type InquiryUpdateManyWithWhereWithoutRequestInput = {
 export type InquiryCreateWithoutMessagesInput = {
   id?: string
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   fromCompany: Prisma.CompanyCreateNestedOneWithoutInquiriesStartedInput
@@ -839,7 +839,7 @@ export type InquiryUncheckedCreateWithoutMessagesInput = {
   productId?: string | null
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -863,7 +863,7 @@ export type InquiryUpdateToOneWithWhereWithoutMessagesInput = {
 export type InquiryUpdateWithoutMessagesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fromCompany?: Prisma.CompanyUpdateOneRequiredWithoutInquiriesStartedNestedInput
@@ -879,7 +879,7 @@ export type InquiryUncheckedUpdateWithoutMessagesInput = {
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -890,7 +890,7 @@ export type InquiryCreateManyFromCompanyInput = {
   productId?: string | null
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -901,7 +901,7 @@ export type InquiryCreateManyToCompanyInput = {
   productId?: string | null
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -909,7 +909,7 @@ export type InquiryCreateManyToCompanyInput = {
 export type InquiryUpdateWithoutFromCompanyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   toCompany?: Prisma.CompanyUpdateOneRequiredWithoutInquiriesReceivedNestedInput
@@ -924,7 +924,7 @@ export type InquiryUncheckedUpdateWithoutFromCompanyInput = {
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.InquiryMessageUncheckedUpdateManyWithoutInquiryNestedInput
@@ -936,7 +936,7 @@ export type InquiryUncheckedUpdateManyWithoutFromCompanyInput = {
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -944,7 +944,7 @@ export type InquiryUncheckedUpdateManyWithoutFromCompanyInput = {
 export type InquiryUpdateWithoutToCompanyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fromCompany?: Prisma.CompanyUpdateOneRequiredWithoutInquiriesStartedNestedInput
@@ -959,7 +959,7 @@ export type InquiryUncheckedUpdateWithoutToCompanyInput = {
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.InquiryMessageUncheckedUpdateManyWithoutInquiryNestedInput
@@ -971,7 +971,7 @@ export type InquiryUncheckedUpdateManyWithoutToCompanyInput = {
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -982,7 +982,7 @@ export type InquiryCreateManyProductInput = {
   toCompanyId: string
   requestId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -990,7 +990,7 @@ export type InquiryCreateManyProductInput = {
 export type InquiryUpdateWithoutProductInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fromCompany?: Prisma.CompanyUpdateOneRequiredWithoutInquiriesStartedNestedInput
@@ -1005,7 +1005,7 @@ export type InquiryUncheckedUpdateWithoutProductInput = {
   toCompanyId?: Prisma.StringFieldUpdateOperationsInput | string
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.InquiryMessageUncheckedUpdateManyWithoutInquiryNestedInput
@@ -1017,7 +1017,7 @@ export type InquiryUncheckedUpdateManyWithoutProductInput = {
   toCompanyId?: Prisma.StringFieldUpdateOperationsInput | string
   requestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1028,7 +1028,7 @@ export type InquiryCreateManyRequestInput = {
   toCompanyId: string
   productId?: string | null
   subject: string
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1036,7 +1036,7 @@ export type InquiryCreateManyRequestInput = {
 export type InquiryUpdateWithoutRequestInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fromCompany?: Prisma.CompanyUpdateOneRequiredWithoutInquiriesStartedNestedInput
@@ -1051,7 +1051,7 @@ export type InquiryUncheckedUpdateWithoutRequestInput = {
   toCompanyId?: Prisma.StringFieldUpdateOperationsInput | string
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   messages?: Prisma.InquiryMessageUncheckedUpdateManyWithoutInquiryNestedInput
@@ -1063,7 +1063,7 @@ export type InquiryUncheckedUpdateManyWithoutRequestInput = {
   toCompanyId?: Prisma.StringFieldUpdateOperationsInput | string
   productId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   subject?: Prisma.StringFieldUpdateOperationsInput | string
-  isDemo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isSample?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1106,7 +1106,7 @@ export type InquirySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   productId?: boolean
   requestId?: boolean
   subject?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   fromCompany?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
@@ -1124,7 +1124,7 @@ export type InquirySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   productId?: boolean
   requestId?: boolean
   subject?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   fromCompany?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
@@ -1140,7 +1140,7 @@ export type InquirySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   productId?: boolean
   requestId?: boolean
   subject?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   fromCompany?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
@@ -1156,12 +1156,12 @@ export type InquirySelectScalar = {
   productId?: boolean
   requestId?: boolean
   subject?: boolean
-  isDemo?: boolean
+  isSample?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type InquiryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fromCompanyId" | "toCompanyId" | "productId" | "requestId" | "subject" | "isDemo" | "createdAt" | "updatedAt", ExtArgs["result"]["inquiry"]>
+export type InquiryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fromCompanyId" | "toCompanyId" | "productId" | "requestId" | "subject" | "isSample" | "createdAt" | "updatedAt", ExtArgs["result"]["inquiry"]>
 export type InquiryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   fromCompany?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
   toCompany?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
@@ -1199,7 +1199,7 @@ export type $InquiryPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     productId: string | null
     requestId: string | null
     subject: string
-    isDemo: boolean
+    isSample: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["inquiry"]>
@@ -1636,7 +1636,7 @@ export interface InquiryFieldRefs {
   readonly productId: Prisma.FieldRef<"Inquiry", 'String'>
   readonly requestId: Prisma.FieldRef<"Inquiry", 'String'>
   readonly subject: Prisma.FieldRef<"Inquiry", 'String'>
-  readonly isDemo: Prisma.FieldRef<"Inquiry", 'Boolean'>
+  readonly isSample: Prisma.FieldRef<"Inquiry", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Inquiry", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Inquiry", 'DateTime'>
 }

@@ -89,7 +89,7 @@ export class RequestListItemDto {
   status!: (typeof REQUEST_STATUSES)[number];
 
   @ApiProperty()
-  isDemo!: boolean;
+  isSample!: boolean;
 
   @ApiProperty()
   createdAt!: string;
@@ -161,7 +161,7 @@ export class OfferDto {
   status!: (typeof OFFER_STATUSES)[number];
 
   @ApiProperty()
-  isDemo!: boolean;
+  isSample!: boolean;
 
   @ApiProperty()
   createdAt!: string;

@@ -14,9 +14,9 @@ import { Separator } from "@/shared/components/ui/separator";
 import { Link, useRouter } from "@/shared/configs/i18/navigation";
 import { useErrorMessage } from "@/shared/hooks";
 import { safeNextPath } from "../lib/safe-next";
-import { DEMO_MODE } from "../model/constants/demo";
+import { SAMPLE_ACCESS_ENABLED } from "../model/constants/sample-access";
 import { useLogin } from "../model/mutations/use-auth-mutations";
-import { DemoAccess } from "./DemoAccess";
+import { SampleAccess } from "./SampleAccess";
 
 export function LoginPage() {
   const t = useTranslations();
@@ -104,17 +104,17 @@ export function LoginPage() {
           </p>
         </form>
       </section>
-      {DEMO_MODE ? (
+      {SAMPLE_ACCESS_ENABLED ? (
         <section
           className="flex flex-col gap-4 rounded-2xl border bg-wheat-soft/60 p-6"
-          aria-labelledby="demo-title"
+          aria-labelledby="sample-title"
         >
-          <h2 id="demo-title" className="text-2xl font-semibold">
-            {t("auth.demoTitle")}
+          <h2 id="sample-title" className="text-2xl font-semibold">
+            {t("auth.sampleTitle")}
           </h2>
-          <p className="text-muted-foreground">{t("auth.demoSubtitle")}</p>
+          <p className="text-muted-foreground">{t("auth.sampleSubtitle")}</p>
           <Separator />
-          <DemoAccess next={next} />
+          <SampleAccess next={next} />
         </section>
       ) : null}
     </div>

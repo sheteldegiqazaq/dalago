@@ -152,7 +152,7 @@ export interface MyCompanyDto {
   /** @nullable */
   address: string | null;
   phone: string;
-  isDemo: boolean;
+  isSample: boolean;
 }
 
 export type MeResponseDtoRole =
@@ -198,6 +198,19 @@ export interface AuthResponseDto {
 export interface LoginDto {
   email: string;
   password: string;
+}
+
+export type SampleSessionDtoRole =
+  (typeof SampleSessionDtoRole)[keyof typeof SampleSessionDtoRole];
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const SampleSessionDtoRole = {
+  BUYER: "BUYER",
+  SUPPLIER: "SUPPLIER",
+} as const;
+
+export interface SampleSessionDto {
+  role: SampleSessionDtoRole;
 }
 
 export type UpdateMeDtoPreferredLanguage =
@@ -275,8 +288,8 @@ export interface SupplierDto {
   /** @nullable */
   address: string | null;
   phone: string;
-  /** Демонстрационная запись */
-  isDemo: boolean;
+  /** Пример данных из сида */
+  isSample: boolean;
   /** Дата регистрации на платформе */
   createdAt: string;
   city: SupplierCityDto;
@@ -364,8 +377,8 @@ export interface ProductListItemDto {
   /** @nullable */
   imageUrl: string | null;
   status: ProductListItemDtoStatus;
-  /** Демонстрационная запись */
-  isDemo: boolean;
+  /** Пример данных из сида */
+  isSample: boolean;
   createdAt: string;
   updatedAt: string;
   city: NamedPlaceDto;
@@ -388,7 +401,7 @@ export interface ProductSupplierDetailsDto {
   /** @nullable */
   description: string | null;
   createdAt: string;
-  isDemo: boolean;
+  isSample: boolean;
   city: NamedPlaceDto;
 }
 
@@ -429,8 +442,8 @@ export interface ProductDetailsDto {
   /** @nullable */
   imageUrl: string | null;
   status: ProductDetailsDtoStatus;
-  /** Демонстрационная запись */
-  isDemo: boolean;
+  /** Пример данных из сида */
+  isSample: boolean;
   createdAt: string;
   updatedAt: string;
   city: NamedPlaceDto;
@@ -558,7 +571,7 @@ export interface RequestListItemDto {
   /** @nullable */
   deliveryAddress: string | null;
   status: RequestListItemDtoStatus;
-  isDemo: boolean;
+  isSample: boolean;
   createdAt: string;
   updatedAt: string;
   offerCount: number;
@@ -620,7 +633,7 @@ export interface OfferDto {
   /** @nullable */
   terms: string | null;
   status: OfferDtoStatus;
-  isDemo: boolean;
+  isSample: boolean;
   createdAt: string;
   supplier: OfferSupplierDto;
   /** @nullable */
@@ -678,7 +691,7 @@ export interface RequestDetailsDto {
   /** @nullable */
   deliveryAddress: string | null;
   status: RequestDetailsDtoStatus;
-  isDemo: boolean;
+  isSample: boolean;
   createdAt: string;
   updatedAt: string;
   offerCount: number;
@@ -811,7 +824,7 @@ export interface SupplierOfferDto {
   /** @nullable */
   terms: string | null;
   status: SupplierOfferDtoStatus;
-  isDemo: boolean;
+  isSample: boolean;
   createdAt: string;
   supplier: OfferSupplierDto;
   /** @nullable */
@@ -856,7 +869,7 @@ export interface InquiryListItemDto {
   /** Последнее сообщение от другой стороны */
   lastFromCounterpart: boolean;
   messageCount: number;
-  isDemo: boolean;
+  isSample: boolean;
   updatedAt: string;
 }
 
@@ -911,7 +924,7 @@ export interface InquiryDetailsDto {
   /** Последнее сообщение от другой стороны */
   lastFromCounterpart: boolean;
   messageCount: number;
-  isDemo: boolean;
+  isSample: boolean;
   updatedAt: string;
   messages: InquiryMessageDto[];
 }
@@ -1011,8 +1024,8 @@ export interface MarketplaceStatsDto {
   activeRequests: number;
   acceptedRequests: number;
   citiesWithSuppliers: number;
-  /** В базе только демонстрационные компании */
-  demoRecordsOnly: boolean;
+  /** В базе только компании-примеры из сида */
+  sampleRecordsOnly: boolean;
 }
 
 export type AiStatusDtoMode =
@@ -1169,7 +1182,7 @@ export interface AiProductItemDto {
   /** @nullable */
   imageUrl: string | null;
   status: AiProductItemDtoStatus;
-  isDemo: boolean;
+  isSample: boolean;
   createdAt: string;
   updatedAt: string;
   city: AiPlaceDto;
@@ -2026,6 +2039,93 @@ export const useAuthControllerSignIn = <TError = unknown, TContext = unknown>(
   TContext
 > => {
   const mutationOptions = getAuthControllerSignInMutationOptions(options);
+
+  return useMutation(mutationOptions, queryClient);
+};
+
+/**
+ * @summary Вход без регистрации в общий аккаунт-пример выбранной роли
+ */
+export const authControllerStartSampleSession = (
+  sampleSessionDto: SampleSessionDto,
+  signal?: AbortSignal,
+) => {
+  return customInstance<AuthResponseDto>({
+    url: `/api/auth/sample-session`,
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    data: sampleSessionDto,
+    signal,
+  });
+};
+
+export const getAuthControllerStartSampleSessionMutationOptions = <
+  TError = unknown,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof authControllerStartSampleSession>>,
+    TError,
+    { data: SampleSessionDto },
+    TContext
+  >;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof authControllerStartSampleSession>>,
+  TError,
+  { data: SampleSessionDto },
+  TContext
+> => {
+  const mutationKey = ["authControllerStartSampleSession"];
+  const { mutation: mutationOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey } };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof authControllerStartSampleSession>>,
+    { data: SampleSessionDto }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return authControllerStartSampleSession(data);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type AuthControllerStartSampleSessionMutationResult = NonNullable<
+  Awaited<ReturnType<typeof authControllerStartSampleSession>>
+>;
+export type AuthControllerStartSampleSessionMutationBody = SampleSessionDto;
+export type AuthControllerStartSampleSessionMutationError = unknown;
+
+/**
+ * @summary Вход без регистрации в общий аккаунт-пример выбранной роли
+ */
+export const useAuthControllerStartSampleSession = <
+  TError = unknown,
+  TContext = unknown,
+>(
+  options?: {
+    mutation?: UseMutationOptions<
+      Awaited<ReturnType<typeof authControllerStartSampleSession>>,
+      TError,
+      { data: SampleSessionDto },
+      TContext
+    >;
+  },
+  queryClient?: QueryClient,
+): UseMutationResult<
+  Awaited<ReturnType<typeof authControllerStartSampleSession>>,
+  TError,
+  { data: SampleSessionDto },
+  TContext
+> => {
+  const mutationOptions =
+    getAuthControllerStartSampleSessionMutationOptions(options);
 
   return useMutation(mutationOptions, queryClient);
 };

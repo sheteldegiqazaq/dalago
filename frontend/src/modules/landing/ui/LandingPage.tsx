@@ -22,7 +22,7 @@ import {
   useMarketplaceStats,
 } from "@/modules/open-data";
 import { useReference } from "@/modules/reference";
-import { DEMO_MODE } from "@/modules/session";
+import { SAMPLE_ACCESS_ENABLED } from "@/modules/session";
 import { SupplierCard, useSuppliers } from "@/modules/suppliers";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
@@ -101,7 +101,7 @@ export function LandingPage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-card">
-                <Link href={DEMO_MODE ? "/demo" : "/register"}>
+                <Link href={SAMPLE_ACCESS_ENABLED ? "/try" : "/register"}>
                   <Tractor aria-hidden />
                   {t("landing.sellProducts")}
                 </Link>
@@ -381,7 +381,7 @@ export function LandingPage() {
             </p>
           </div>
           <Button asChild size="lg">
-            <Link href={DEMO_MODE ? "/demo" : "/register"}>
+            <Link href={SAMPLE_ACCESS_ENABLED ? "/try" : "/register"}>
               {t("landing.ctaButton")}
             </Link>
           </Button>

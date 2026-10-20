@@ -49,5 +49,5 @@ export type MarketplaceStats = {
   activeRequests: number;
   acceptedRequests: number;
   citiesWithSuppliers: number;
-  demoRecordsOnly: boolean;
+  sampleRecordsOnly: boolean;
 };

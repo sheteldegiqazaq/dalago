@@ -91,7 +91,7 @@ export class InquiryListItemDto {
   messageCount!: number;
 
   @ApiProperty()
-  isDemo!: boolean;
+  isSample!: boolean;
 
   @ApiProperty()
   updatedAt!: string;
