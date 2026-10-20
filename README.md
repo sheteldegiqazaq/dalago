@@ -8,6 +8,9 @@ B2B-площадка оптовых закупок у местных произ�
 Проект хакатона Republic Day Hackathon (Семей), трек «Қала мен дала».
 **Все компании, товары и сделки в демо-базе вымышленные.**
 
+**Онлайн-демо: https://dalago.vercel.app** (вход без регистрации: https://dalago.vercel.app/ru/demo, пароль `demo12345`).
+API: https://dalago-api.vercel.app/api/health, Swagger: https://dalago-api.vercel.app/api/docs.
+
 - Документация для защиты: [docs/](docs/README.md) — демо-сценарий, питч, критерии жюри, архитектура, план пилота.
 - Правила для Claude Code и разработчиков: [CLAUDE.md](CLAUDE.md), `backend/docs`, `frontend/AGENTS.md`.
 
@@ -118,6 +121,23 @@ cd frontend
 pnpm exec playwright install chromium
 pnpm test:e2e                 # 4 браузерных сценария, включая «заявка → предложение → принятие»
 ```
+
+## Публикация в Vercel
+
+Два проекта Vercel и база Neon (регион Франкфурт):
+
+| Проект | Папка | Адрес |
+| --- | --- | --- |
+| `dalago` | `frontend/` | https://dalago.vercel.app |
+| `dalago-api` | `backend/` | https://dalago-api.vercel.app |
+
+- Бэкенд собирается `pnpm build`. Vercel запускает собранный `dist` через `backend/server.js`
+  (настройки в `backend/vercel.json`).
+- `DATABASE_URL` подставляет интеграция Neon. В Vercel заданы `JWT_SECRET`,
+  `ALLOWED_ORIGIN=https://dalago.vercel.app` и `OPENAPI_OUTPUT_PATH=/tmp/openapi`.
+- Во фронтенде заданы `NEXT_PUBLIC_API_URL=https://dalago-api.vercel.app` и `NEXT_PUBLIC_DEMO_MODE=true`.
+- Публикация: `vercel deploy --prod` в папке `backend` или `frontend`.
+- Миграции и сид для Neon запускаются локально, со строкой подключения `DATABASE_URL_UNPOOLED` из Vercel.
 
 ## Переменные окружения
 

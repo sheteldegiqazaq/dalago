@@ -39,6 +39,7 @@ logs/
 *.pid
 
 # Локальные настройки инструментов
+.vercel/
 .claude/settings.local.json
 .idea/
 .DS_Store
