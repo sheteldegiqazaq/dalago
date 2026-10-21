@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
-import { SampleDataBanner } from "./SampleDataBanner";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 
@@ -16,7 +15,6 @@ export function AppShell({ children }: { children: ReactNode }) {
       >
         {t("skipToContent")}
       </a>
-      <SampleDataBanner />
       <SiteHeader />
       <main id="main" className="flex-1" tabIndex={-1}>
         {children}
